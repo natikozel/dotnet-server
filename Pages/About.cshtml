@@ -1,0 +1,313 @@
+@page
+@model Connect4Server.Pages.AboutModel
+@{
+    ViewData["Title"] = "About";
+    ViewData["AdditionalStyles"] = "~/css/about.css";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <h1>ℹ️ About Connect 4 Project</h1>
+        <p class="lead">Learn about the developers and the technology behind this modern Connect 4 game</p>
+    </div>
+</section>
+
+<!-- Project Overview -->
+<section class="overview-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-large">
+                    <div class="card-header">
+                        <h3 class="mb-0">🎮 Project Information</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            This Connect 4 game was developed as part of a <strong>.NET course final project</strong>. 
+                            The application demonstrates various ASP.NET Core concepts including Razor Pages, 
+                            Entity Framework Core, Web API, and client-server communication.
+                        </p>
+                        <p class="card-text">
+                            The game allows players to register and play Connect 4 against a CPU opponent. 
+                            All game statistics and player information are stored in a SQL Server database.
+                        </p>
+                        <p class="card-text">
+                            Our implementation features modern web technologies, responsive design, and 
+                            an intuitive user experience that makes the classic Connect 4 game accessible 
+                            to players of all skill levels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card shadow-large">
+                    <div class="card-header">
+                        <h4 class="mb-0">📊 Project Stats</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="stats-item">
+                            <span class="stats-icon">📅</span>
+                            <div class="stats-content">
+                                <strong>Development Time</strong>
+                                <p>3 Months</p>
+                            </div>
+                        </div>
+                        <div class="stats-item">
+                            <span class="stats-icon">💻</span>
+                            <div class="stats-content">
+                                <strong>Technologies Used</strong>
+                                <p>8+ Modern Technologies</p>
+                            </div>
+                        </div>
+                        <div class="stats-item">
+                            <span class="stats-icon">🎯</span>
+                            <div class="stats-content">
+                                <strong>Project Type</strong>
+                                <p>Final Course Project</p>
+                            </div>
+                        </div>
+                        <div class="stats-item">
+                            <span class="stats-icon">🏆</span>
+                            <div class="stats-content">
+                                <strong>Status</strong>
+                                <p>Completed & Active</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Developers Section -->
+<section class="developers-section">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">👨‍💻 Meet the Developers</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="developer-card">
+                    <div class="developer-avatar">
+                        <span class="avatar-text">NK</span>
+                    </div>
+                    <div class="developer-info">
+                        <h4 class="developer-name">Netanel Kozel</h4>
+                        <p class="developer-role">Lead Developer & Project Manager</p>
+                        <div class="developer-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🆔</span>
+                                <span class="detail-text">Student ID: 315116939</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🎓</span>
+                                <span class="detail-text">Software Engineering Student</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">💡</span>
+                                <span class="detail-text">Specializing in .NET development and web applications</span>
+                            </div>
+                        </div>
+                        <div class="developer-skills">
+                            <span class="skill-badge">C#</span>
+                            <span class="skill-badge">ASP.NET Core</span>
+                            <span class="skill-badge">Entity Framework</span>
+                            <span class="skill-badge">Web API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="developer-card">
+                    <div class="developer-avatar">
+                        <span class="avatar-text">BK</span>
+                    </div>
+                    <div class="developer-info">
+                        <h4 class="developer-name">Barak Kuzi</h4>
+                        <p class="developer-role">Full-Stack Developer & UI/UX Designer</p>
+                        <div class="developer-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🆔</span>
+                                <span class="detail-text">Student ID: 318359833</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🎓</span>
+                                <span class="detail-text">Software Engineering Student</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">💡</span>
+                                <span class="detail-text">Specializing in .NET development and web applications</span>
+                            </div>
+                        </div>
+                        <div class="developer-skills">
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">Razor Pages</span>
+                            <span class="skill-badge">Bootstrap</span>
+                            <span class="skill-badge">SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technologies Section -->
+<section class="technologies-section">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">🛠️ Technologies Used</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="tech-category">
+                    <h4 class="tech-category-title">🖥️ Backend Technologies</h4>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <span class="tech-icon">🔧</span>
+                            <div class="tech-content">
+                                <strong>ASP.NET Core Razor Pages</strong>
+                                <p>Modern web framework for building server-side rendered applications</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon">🗃️</span>
+                            <div class="tech-content">
+                                <strong>Entity Framework Core</strong>
+                                <p>Object-relational mapper for .NET applications</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon">💾</span>
+                            <div class="tech-content">
+                                <strong>SQL Server Database</strong>
+                                <p>Robust relational database management system</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon">🌐</span>
+                            <div class="tech-content">
+                                <strong>Web API Core</strong>
+                                <p>RESTful API for client-server communication</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="tech-category">
+                    <h4 class="tech-category-title">🎨 Frontend Technologies</h4>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <span class="tech-icon">🎨</span>
+                            <div class="tech-content">
+                                <strong>Bootstrap CSS Framework</strong>
+                                <p>Responsive and mobile-first CSS framework</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon">✅</span>
+                            <div class="tech-content">
+                                <strong>Data Annotations Validation</strong>
+                                <p>Client and server-side form validation</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon">🏗️</span>
+                            <div class="tech-content">
+                                <strong>Client-Server Architecture</strong>
+                                <p>Scalable multi-tier application design</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon">🔄</span>
+                            <div class="tech-content">
+                                <strong>Model-View-Controller Pattern</strong>
+                                <p>Separation of concerns architectural pattern</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">✨ Key Features</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h4 class="feature-title">Intelligent CPU</h4>
+                    <p class="feature-description">
+                        Play against our smart CPU opponent that adapts to your playing style and provides challenging gameplay.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h4 class="feature-title">Statistics Tracking</h4>
+                    <p class="feature-description">
+                        Keep track of your wins, losses, and improvement over time with detailed player statistics.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h4 class="feature-title">Responsive Design</h4>
+                    <p class="feature-description">
+                        Play from any device with our responsive web interface that works on desktop, tablet, and mobile.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h4 class="feature-title">Game Persistence</h4>
+                    <p class="feature-description">
+                        All your games are saved and can be restored at any time, ensuring you never lose your progress.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h4 class="feature-title">Real-Time Updates</h4>
+                    <p class="feature-description">
+                        Experience smooth, real-time gameplay with instant responses and seamless user interactions.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h4 class="feature-title">Modern Interface</h4>
+                    <p class="feature-description">
+                        Beautiful, intuitive design with animations and transitions that enhance your gaming experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Play Connect 4?</h2>
+            <p class="cta-subtitle">Join our community and start playing against our intelligent CPU opponent!</p>
+            <div class="cta-buttons">
+                <a asp-page="/Index" class="btn btn-primary btn-lg">
+                    🏠 Back to Home
+                </a>
+                <a asp-page="/Register" class="btn btn-success btn-lg">
+                    🚀 Register to Play
+                </a>
+            </div>
+        </div>
+    </div>
+</section> 

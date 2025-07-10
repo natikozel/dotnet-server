@@ -1,0 +1,191 @@
+@page
+@model Connect4Server.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Player Registration";
+}
+
+<section class="hero-section">
+    <div class="container">
+        <h1>🎮 Player Registration</h1>
+        <p class="lead">Join our Connect 4 community and start playing against our intelligent CPU!</p>
+    </div>
+</section>
+
+<section class="registration-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 mb-4">
+                <div class="card shadow-large">
+                    <div class="card-header text-center">
+                        <h4 class="mb-0">📝 Create Your Player Account</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <form method="post" asp-page="Register">
+                            @Html.AntiForgeryToken()
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="Player.FirstName" class="form-label">
+                                            👤 First Name
+                                        </label>
+                                        <input asp-for="Player.FirstName" class="form-control form-control-lg" 
+                                               placeholder="Enter your first name" required minlength="2" />
+                                        <span asp-validation-for="Player.FirstName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="Player.PlayerId" class="form-label">
+                                            🆔 Player ID
+                                        </label>
+                                        <input asp-for="Player.PlayerId" class="form-control form-control-lg" 
+                                               type="number" min="1" max="1000" required
+                                               placeholder="Choose ID (1-1000)" />
+                                        <span asp-validation-for="Player.PlayerId" class="text-danger"></span>
+                                        <div class="form-text">
+                                            <small>💡 Choose a unique ID between 1 and 1000</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="Player.PhoneNumber" class="form-label">
+                                            📱 Phone Number
+                                        </label>
+                                        <input asp-for="Player.PhoneNumber" class="form-control form-control-lg" 
+                                               placeholder="e.g., 052-1234567" required pattern="^0\d{2}-\d{7}$" 
+                                               maxlength="11" id="phoneInput" />
+                                        <span asp-validation-for="Player.PhoneNumber" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="Player.Country" class="form-label">
+                                            🌍 Country
+                                        </label>
+                                        <select asp-for="Player.Country" class="form-select form-select-lg" required>
+                                            <option value="">🌐 Select Your Country</option>
+                                            <option value="Israel">🇮🇱 Israel</option>
+                                            <option value="United States">🇺🇸 United States</option>
+                                            <option value="Canada">🇨🇦 Canada</option>
+                                            <option value="United Kingdom">🇬🇧 United Kingdom</option>
+                                            <option value="Germany">🇩🇪 Germany</option>
+                                            <option value="France">🇫🇷 France</option>
+                                            <option value="Italy">🇮🇹 Italy</option>
+                                            <option value="Spain">🇪🇸 Spain</option>
+                                            <option value="Australia">🇦🇺 Australia</option>
+                                            <option value="Japan">🇯🇵 Japan</option>
+                                        </select>
+                                        <span asp-validation-for="Player.Country" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <button type="submit" class="btn btn-primary btn-lg w-100" id="submitBtn">
+                                    🚀 Register Player
+                                </button>
+                            </div>
+                        </form>
+
+                        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">ℹ️ Registration Info</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-item mb-3">
+                            <span class="info-icon">✅</span>
+                            <div class="info-content">
+                                <strong>Quick & Easy</strong>
+                                <p>Registration takes less than a minute</p>
+                            </div>
+                        </div>
+                        <div class="info-item mb-3">
+                            <span class="info-icon">🔒</span>
+                            <div class="info-content">
+                                <strong>Privacy Protected</strong>
+                                <p>Your data is secure and never shared</p>
+                            </div>
+                        </div>
+                        <div class="info-item mb-3">
+                            <span class="info-icon">🎮</span>
+                            <div class="info-content">
+                                <strong>Instant Access</strong>
+                                <p>Start playing immediately after registration</p>
+                            </div>
+                        </div>
+                        <div class="info-item mb-3">
+                            <span class="info-icon">📊</span>
+                            <div class="info-content">
+                                <strong>Statistics</strong>
+                                <p>Track your progress and achievements</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 p-3 bg-light rounded">
+                            <h6>🎯 What's Next?</h6>
+                            <ol class="mb-0">
+                                <li>Complete registration</li>
+                                <li>Download the game client</li>
+                                <li>Use your Player ID to login</li>
+                                <li>Start playing Connect 4!</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (Model.SuccessMessage != null)
+{
+    <div class="success-overlay">
+        <div class="success-modal">
+            <div class="alert alert-success animate-fadeInUp mb-0">
+                <div class="d-flex align-items-center">
+                    <span class="me-3 large-icon">🎉</span>
+                    <div>
+                        <strong>Registration Successful!</strong>
+                        <p class="mb-0 mt-2">@Model.SuccessMessage</p>
+                        <div class="mt-3">
+                            <a href="/" class="btn btn-primary me-2">Go to Homepage</a>
+                            <a href="/Players" class="btn btn-outline-primary">View Players</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="container mt-4">
+        <div class="alert alert-danger animate-fadeInUp">
+            <div class="d-flex align-items-center">
+                <span class="me-3" style="font-size: 1.5rem;">❌</span>
+                <div>
+                    <strong>Error!</strong> @Model.ErrorMessage
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@{
+    ViewData["AdditionalStyles"] = "~/css/register.css";
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/register.js"></script>
+} 
