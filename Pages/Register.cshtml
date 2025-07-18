@@ -1,0 +1,409 @@
+@page
+@model Connect4Server.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Player Registration";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container text-center">
+        <div class="hero-content">
+            <h1 class="hero-title">🎮 Player Registration</h1>
+            <p class="hero-subtitle">Join our Connect 4 community and start playing against our intelligent CPU!</p>
+        </div>
+    </div>
+</section>
+
+<!-- Registration Form Section -->
+<section class="registration-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Success/Error Message -->
+                @if (!string.IsNullOrEmpty(Model.Message))
+                {
+                    <div class="alert @(Model.Success ? "alert-success" : "alert-danger") alert-modern mb-4">
+                        <i class="fas @(Model.Success ? "fa-check-circle" : "fa-exclamation-triangle") me-2"></i>
+                        @Model.Message
+                    </div>
+                }
+
+                <div class="registration-card">
+                    <div class="card-header text-center">
+                        <h4 class="mb-0">📝 Create Your Player Account</h4>
+                        <p class="card-subtitle">Fill in your details to start your Connect 4 journey</p>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" novalidate>
+                            @Html.AntiForgeryToken()
+
+                            <div class="row">
+                                <!-- First Name -->
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="Player.FirstName" class="form-label required">
+                                            <i class="fas fa-user me-2"></i>@Html.DisplayNameFor(m => m.Player.FirstName)
+                                        </label>
+                                        <input asp-for="Player.FirstName"
+                                               class="form-control form-control-modern @(ViewData.ModelState["Player.FirstName"]?.Errors.Count > 0 ? "is-invalid" : "")"
+                                               placeholder="Enter your first name" />
+                                        <span asp-validation-for="Player.FirstName" class="invalid-feedback d-block"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Player ID -->
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="Player.PlayerId" class="form-label required">
+                                            <i class="fas fa-hashtag me-2"></i>@Html.DisplayNameFor(m => m.Player.PlayerId)
+                                        </label>
+                                        <input asp-for="Player.PlayerId"
+                                               class="form-control form-control-modern @(ViewData.ModelState["Player.PlayerId"]?.Errors.Count > 0 ? "is-invalid" : "")"
+                                               type="number" min="1" max="1000"
+                                               placeholder="Choose unique ID (1-1000)" />
+                                        <span asp-validation-for="Player.PlayerId" class="invalid-feedback d-block"></span>
+                                        <div class="form-text">
+                                            <small><i class="fas fa-info-circle me-1"></i>Choose a unique ID between 1 and 1000</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Country -->
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="Player.Country" class="form-label required">
+                                            <i class="fas fa-globe me-2"></i>@Html.DisplayNameFor(m => m.Player.Country)
+                                        </label>
+                                        <select asp-for="Player.Country"
+                                                class="form-control form-control-modern @(ViewData.ModelState["Player.Country"]?.Errors.Count > 0 ? "is-invalid" : "")"
+                                                id="countrySelect" onchange="updatePhoneValidation()">
+                                            <option value="">-- Select your country --</option>
+                                            <option value="Israel">🇮🇱 Israel</option>
+                                            <option value="United States">🇺🇸 United States</option>
+                                            <option value="United Kingdom">🇬🇧 United Kingdom</option>
+                                            <option value="Germany">🇩🇪 Germany</option>
+                                            <option value="France">🇫🇷 France</option>
+                                            <option value="Canada">🇨🇦 Canada</option>
+                                            <option value="Australia">🇦🇺 Australia</option>
+                                            <option value="Japan">🇯🇵 Japan</option>
+                                            <option value="South Korea">🇰🇷 South Korea</option>
+                                            <option value="Other">🌍 Other</option>
+                                        </select>
+                                        <span asp-validation-for="Player.Country" class="invalid-feedback d-block"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Phone Number -->
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="Player.PhoneNumber" class="form-label required">
+                                            <i class="fas fa-phone me-2"></i>@Html.DisplayNameFor(m => m.Player.PhoneNumber)
+                                        </label>
+                                        <input asp-for="Player.PhoneNumber"
+                                               class="form-control form-control-modern @(ViewData.ModelState["Player.PhoneNumber"]?.Errors.Count > 0 ? "is-invalid" : "")"
+                                               placeholder="Select country first" id="phoneInput" disabled />
+                                        <span asp-validation-for="Player.PhoneNumber" class="invalid-feedback d-block"></span>
+                                        <div class="form-text">
+                                            <small id="phoneFormat"><i class="fas fa-info-circle me-1"></i>Please select a country first</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg btn-register">
+                                    <i class="fas fa-user-plus me-2"></i>Register Player
+                                </button>
+                            </div>
+
+                            <!-- Form Requirements Info -->
+                            <div class="requirements-info mt-4">
+                                <h6><i class="fas fa-info-circle me-2"></i>Registration Requirements:</h6>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check text-success me-2"></i>First name: At least 2 letters, letters only</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Player ID: Unique number between 1-1000</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Phone: Valid format for selected country</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Country: Must be selected from the list</li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function updatePhoneValidation() {
+            const countrySelect = document.getElementById('countrySelect');
+            const phoneInput = document.getElementById('phoneInput');
+            const phoneFormat = document.getElementById('phoneFormat');
+
+            const country = countrySelect.value;
+
+            if (!country) {
+                phoneInput.disabled = true;
+                phoneInput.placeholder = "Select country first";
+                phoneFormat.innerHTML = '<i class="fas fa-info-circle me-1"></i>Please select a country first';
+                phoneInput.value = '';
+                return;
+            }
+
+            phoneInput.disabled = false;
+
+            const phoneFormats = {
+                'Israel': {
+                    placeholder: '052-1234567',
+                    format: 'Israeli format: 0XX-XXXXXXX (e.g., 052-1234567)'
+                },
+                'United States': {
+                    placeholder: '(555) 123-4567',
+                    format: 'US format: (XXX) XXX-XXXX (e.g., (555) 123-4567)'
+                },
+                'United Kingdom': {
+                    placeholder: '+44 1234 567890',
+                    format: 'UK format: +44 XXXX XXXXXX (e.g., +44 1234 567890)'
+                },
+                'Germany': {
+                    placeholder: '+49 30 12345678',
+                    format: 'German format: +49 XXX XXXXXXX (e.g., +49 30 12345678)'
+                },
+                'France': {
+                    placeholder: '+33 1 23 45 67 89',
+                    format: 'French format: +33 X XX XX XX XX (e.g., +33 1 23 45 67 89)'
+                },
+                'Canada': {
+                    placeholder: '(416) 123-4567',
+                    format: 'Canadian format: (XXX) XXX-XXXX (e.g., (416) 123-4567)'
+                },
+                'Australia': {
+                    placeholder: '+61 2 1234 5678',
+                    format: 'Australian format: +61 X XXXX XXXX (e.g., +61 2 1234 5678)'
+                },
+                'Japan': {
+                    placeholder: '+81 90 1234 5678',
+                    format: 'Japanese format: +81 XX XXXX XXXX (e.g., +81 90 1234 5678)'
+                },
+                'South Korea': {
+                    placeholder: '+82 10 1234 5678',
+                    format: 'Korean format: +82 XX XXXX XXXX (e.g., +82 10 1234 5678)'
+                },
+                'Other': {
+                    placeholder: '+1 1234567890',
+                    format: 'International format: +XXX XXXXXXXXXX (e.g., +1 1234567890)'
+                }
+            };
+
+            const format = phoneFormats[country];
+            if (format) {
+                phoneInput.placeholder = format.placeholder;
+                phoneFormat.innerHTML = `<i class="fas fa-info-circle me-1"></i>${format.format}`;
+                phoneInput.value = '';
+            }
+        }
+
+        // Initialize form on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePhoneValidation();
+
+            // Re-enable phone input if country is already selected (after form submission with errors)
+            const countrySelect = document.getElementById('countrySelect');
+            if (countrySelect.value) {
+                updatePhoneValidation();
+            }
+        });
+    </script>
+}
+
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 80px 0;
+    }
+
+    .hero-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 0;
+    }
+
+    .registration-section {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 70vh;
+    }
+
+    .registration-card {
+        background: white;
+        border-radius: 25px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        border: none;
+        overflow: hidden;
+    }
+
+    .registration-card .card-header {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: none;
+        padding: 30px;
+    }
+
+    .registration-card .card-header h4 {
+        color: #2d3748;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .card-subtitle {
+        color: #718096;
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
+
+    .registration-card .card-body {
+        padding: 40px;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #2d3748;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+    }
+
+    .form-label.required::after {
+        content: " *";
+        color: #dc3545;
+        font-weight: bold;
+    }
+
+    .form-control-modern {
+        padding: 15px 20px;
+        border: 2px solid #e2e8f0;
+        border-radius: 15px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+    }
+
+    .form-control-modern:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        background: white;
+    }
+
+    .form-control-modern:disabled {
+        background: #f1f5f9;
+        color: #9ca3af;
+        cursor: not-allowed;
+    }
+
+    .form-control-modern.is-invalid {
+        border-color: #dc3545;
+        background: #fff5f5;
+    }
+
+    .form-control-modern.is-invalid:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+
+    .invalid-feedback {
+        display: block !important;
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 0.875rem;
+        color: #dc3545;
+        font-weight: 500;
+    }
+
+    .form-text small {
+        color: #6b7280;
+        font-size: 0.85rem;
+    }
+
+    .btn-register {
+        padding: 15px 40px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 25px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-register:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    }
+
+    .requirements-info {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        border-radius: 15px;
+        padding: 20px;
+        border-left: 4px solid #0ea5e9;
+    }
+
+    .requirements-info h6 {
+        color: #0369a1;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .requirements-info li {
+        color: #374151;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+
+    .alert-modern {
+        border-radius: 15px;
+        padding: 20px;
+        border: none;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .alert-success {
+        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        color: #065f46;
+    }
+
+    .alert-danger {
+        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+        color: #991b1b;
+    }
+
+    @@media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.2rem;
+        }
+
+        .registration-card .card-body {
+            padding: 25px;
+        }
+
+        .registration-card .card-header {
+            padding: 25px;
+        }
+    }
+</style>
