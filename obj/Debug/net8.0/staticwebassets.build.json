@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OTftj2iac8p7x1fHzsv3Yy2LyfWx4wHptiAEUgBSjfE=",
+  "Hash": "YptRUrBXyOJTvhw+F1ktjGOBTpF6aTnit4POyjwXEys=",
   "Source": "Connect4Server",
   "BasePath": "_content/Connect4Server",
   "Mode": "Default",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "i1frbxyiuh",
-      "Integrity": "GsxQP5ChXrSEAx/7uAhwMO9BlBSbhS78ehlyZzOaL2Y=",
+      "Fingerprint": "zgaufpnmjj",
+      "Integrity": "fQy9B6qEh4rVuj3CQk8TnpLfP2XqEIlHLYUX3H/fMvg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\about.css"
@@ -52,8 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "9lrigjewbj",
-      "Integrity": "LXjjFIm0+fpQMAsIL+0XmdnZZy9VY0kpmUMQBuMjHwg=",
+      "Fingerprint": "vmd0r2yj9f",
+      "Integrity": "B2i9LRessexoFddOiymp/UkcgMo/j2/THAt5E9EE9vM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\index.css"
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "xk5dnf8kjj",
-      "Integrity": "gfDa9gXIBcVWnUVPIP5Ptzw71FHQVJb6AMpzA4tszp0=",
+      "Fingerprint": "tnjubumhjy",
+      "Integrity": "CYIHEVD4LtkofKbQQ98lP4yFr+VPZsQcamPjbf9ELlA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\players.css"
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "zuul7cjhzv",
-      "Integrity": "hekNxwoeZIzsn1QLcxao9JSU7ukKf5cJFPnmNXwa1tk=",
+      "Fingerprint": "4shz0heww9",
+      "Integrity": "PPeiQDFgEfnKt6dzJvZXvHUHZYf3U4HRt9eu3R6eLRA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\register.css"
@@ -115,8 +115,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "fkqhv57e7m",
-      "Integrity": "v0McGBiazhZVWO4i+K8f33NGTNncE82HBvk7fCvtGbI=",
+      "Fingerprint": "enr1tpjwqt",
+      "Integrity": "xkw58yfEuJSXeiQd/1o8aKXsdMwn151A5Cjgw+MU2iQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -157,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "y1updij4tc",
-      "Integrity": "mrYcGaiFjL6fNrxrMt6wbsUalMc9yQsUvc9wKoW+//0=",
+      "Fingerprint": "93vev8mv8y",
+      "Integrity": "5VOvjyRiEzla0eECFhxe7Ss2UGtV/Ai59KADupt1mMQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\register.js"
@@ -178,8 +178,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "dx9s1k7210",
-      "Integrity": "v302KOr9P5/YQOFdib49OAOtoD2ehNgD33M8F9HIjJc=",
+      "Fingerprint": "flu97hwqnq",
+      "Integrity": "3TGt5RXm3Gf5ll2+S5qM/BquhCfz1Y5r+mCybx2Wgro=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
@@ -1123,8 +1123,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "81b7ukuj9c",
-      "Integrity": "ZH6pA6BSx6fuHZvdaKph1DwUJ+VSYilIiEQu8ilnvqk=",
+      "Fingerprint": "z6qzljqjd0",
+      "Integrity": "WzAxfJw1u28FEBxQHehmzGhSq5tlXc9ZQXM/ZkTD69A=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
@@ -1186,8 +1186,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "356vix0kms",
-      "Integrity": "16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s=",
+      "Fingerprint": "l3n5xuwxn8",
+      "Integrity": "z8IfXovWVa6ZfuyRYTi3B7HSkLgycsAqlcn4IbjIcxA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
@@ -1207,8 +1207,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ay5nd8zt9x",
-      "Integrity": "4jrcLBsi0Ugm8iLKdqDsAyaCDjkscYZdoGuNH/zqs4E=",
+      "Fingerprint": "gcjdx5jb8l",
+      "Integrity": "0HeMWyQUbTbe7SGnSYbjj9+HVA0hKDmEUtbYoTKe+Bk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
@@ -1228,8 +1228,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "9oaff4kq20",
-      "Integrity": "N11IyJpHTgDcSCb3AfX4VrBnpGQeem1NoNzzgcXVyCc=",
+      "Fingerprint": "35gxhxa0gh",
+      "Integrity": "90Rlzuz8pIZK4g9o2I7nGK+9n5cU9Rbdt4GtxRO5arA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
@@ -1291,8 +1291,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "x0q3zqp4vz",
-      "Integrity": "geHEkw/WGPdaHQMRq5HuNY9snliNzU/y2OW8ycnhGXw=",
+      "Fingerprint": "xzw0cte36n",
+      "Integrity": "85iHjKszi4aWOL2sGurna/OsEbK4nabgtovBpkVzNEA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
@@ -1375,8 +1375,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "mlv21k5csn",
-      "Integrity": "hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=",
+      "Fingerprint": "jfsiqqwiad",
+      "Integrity": "kR0ThRjy07+hq4p08nfdkjN+pI94Gj2rK5lyE0buITU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
@@ -1394,7 +1394,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16391"
+          "Value": "16406"
         },
         {
           "Name": "Content-Type",
@@ -1402,11 +1402,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GsxQP5ChXrSEAx/7uAhwMO9BlBSbhS78ehlyZzOaL2Y=\""
+          "Value": "\"fQy9B6qEh4rVuj3CQk8TnpLfP2XqEIlHLYUX3H/fMvg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 10 Jul 2025 14:20:28 GMT"
+          "Value": "Fri, 18 Jul 2025 17:29:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1416,12 +1416,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-GsxQP5ChXrSEAx/7uAhwMO9BlBSbhS78ehlyZzOaL2Y="
+          "Value": "sha256-fQy9B6qEh4rVuj3CQk8TnpLfP2XqEIlHLYUX3H/fMvg="
         }
       ]
     },
     {
-      "Route": "css/about.i1frbxyiuh.css",
+      "Route": "css/about.zgaufpnmjj.css",
       "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\css\\about.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1431,7 +1431,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16391"
+          "Value": "16406"
         },
         {
           "Name": "Content-Type",
@@ -1439,11 +1439,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GsxQP5ChXrSEAx/7uAhwMO9BlBSbhS78ehlyZzOaL2Y=\""
+          "Value": "\"fQy9B6qEh4rVuj3CQk8TnpLfP2XqEIlHLYUX3H/fMvg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 10 Jul 2025 14:20:28 GMT"
+          "Value": "Fri, 18 Jul 2025 17:29:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1453,7 +1453,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "i1frbxyiuh"
+          "Value": "zgaufpnmjj"
         },
         {
           "Name": "label",
@@ -1461,52 +1461,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-GsxQP5ChXrSEAx/7uAhwMO9BlBSbhS78ehlyZzOaL2Y="
-        }
-      ]
-    },
-    {
-      "Route": "css/index.9lrigjewbj.css",
-      "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\css\\index.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "14631"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"LXjjFIm0+fpQMAsIL+0XmdnZZy9VY0kpmUMQBuMjHwg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 18 Jul 2025 13:21:02 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "9lrigjewbj"
-        },
-        {
-          "Name": "label",
-          "Value": "css/index.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-LXjjFIm0+fpQMAsIL+0XmdnZZy9VY0kpmUMQBuMjHwg="
+          "Value": "sha256-fQy9B6qEh4rVuj3CQk8TnpLfP2XqEIlHLYUX3H/fMvg="
         }
       ]
     },
@@ -1521,7 +1476,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14631"
+          "Value": "13959"
         },
         {
           "Name": "Content-Type",
@@ -1529,11 +1484,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"LXjjFIm0+fpQMAsIL+0XmdnZZy9VY0kpmUMQBuMjHwg=\""
+          "Value": "\"B2i9LRessexoFddOiymp/UkcgMo/j2/THAt5E9EE9vM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Jul 2025 13:21:02 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1543,7 +1498,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-LXjjFIm0+fpQMAsIL+0XmdnZZy9VY0kpmUMQBuMjHwg="
+          "Value": "sha256-B2i9LRessexoFddOiymp/UkcgMo/j2/THAt5E9EE9vM="
+        }
+      ]
+    },
+    {
+      "Route": "css/index.vmd0r2yj9f.css",
+      "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\css\\index.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13959"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B2i9LRessexoFddOiymp/UkcgMo/j2/THAt5E9EE9vM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vmd0r2yj9f"
+        },
+        {
+          "Name": "label",
+          "Value": "css/index.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-B2i9LRessexoFddOiymp/UkcgMo/j2/THAt5E9EE9vM="
         }
       ]
     },
@@ -1558,7 +1558,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16171"
+          "Value": "16201"
         },
         {
           "Name": "Content-Type",
@@ -1566,11 +1566,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gfDa9gXIBcVWnUVPIP5Ptzw71FHQVJb6AMpzA4tszp0=\""
+          "Value": "\"CYIHEVD4LtkofKbQQ98lP4yFr+VPZsQcamPjbf9ELlA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Jul 2025 13:32:51 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1580,12 +1580,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-gfDa9gXIBcVWnUVPIP5Ptzw71FHQVJb6AMpzA4tszp0="
+          "Value": "sha256-CYIHEVD4LtkofKbQQ98lP4yFr+VPZsQcamPjbf9ELlA="
         }
       ]
     },
     {
-      "Route": "css/players.xk5dnf8kjj.css",
+      "Route": "css/players.tnjubumhjy.css",
       "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\css\\players.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1595,7 +1595,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16171"
+          "Value": "16201"
         },
         {
           "Name": "Content-Type",
@@ -1603,11 +1603,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gfDa9gXIBcVWnUVPIP5Ptzw71FHQVJb6AMpzA4tszp0=\""
+          "Value": "\"CYIHEVD4LtkofKbQQ98lP4yFr+VPZsQcamPjbf9ELlA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Jul 2025 13:32:51 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1617,7 +1617,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xk5dnf8kjj"
+          "Value": "tnjubumhjy"
         },
         {
           "Name": "label",
@@ -1625,7 +1625,52 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-gfDa9gXIBcVWnUVPIP5Ptzw71FHQVJb6AMpzA4tszp0="
+          "Value": "sha256-CYIHEVD4LtkofKbQQ98lP4yFr+VPZsQcamPjbf9ELlA="
+        }
+      ]
+    },
+    {
+      "Route": "css/register.4shz0heww9.css",
+      "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\css\\register.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12449"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PPeiQDFgEfnKt6dzJvZXvHUHZYf3U4HRt9eu3R6eLRA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4shz0heww9"
+        },
+        {
+          "Name": "label",
+          "Value": "css/register.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-PPeiQDFgEfnKt6dzJvZXvHUHZYf3U4HRt9eu3R6eLRA="
         }
       ]
     },
@@ -1640,7 +1685,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12989"
+          "Value": "12449"
         },
         {
           "Name": "Content-Type",
@@ -1648,11 +1693,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hekNxwoeZIzsn1QLcxao9JSU7ukKf5cJFPnmNXwa1tk=\""
+          "Value": "\"PPeiQDFgEfnKt6dzJvZXvHUHZYf3U4HRt9eu3R6eLRA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Jul 2025 13:40:26 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1662,52 +1707,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-hekNxwoeZIzsn1QLcxao9JSU7ukKf5cJFPnmNXwa1tk="
-        }
-      ]
-    },
-    {
-      "Route": "css/register.zuul7cjhzv.css",
-      "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\css\\register.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "12989"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"hekNxwoeZIzsn1QLcxao9JSU7ukKf5cJFPnmNXwa1tk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 18 Jul 2025 13:40:26 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "zuul7cjhzv"
-        },
-        {
-          "Name": "label",
-          "Value": "css/register.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-hekNxwoeZIzsn1QLcxao9JSU7ukKf5cJFPnmNXwa1tk="
+          "Value": "sha256-PPeiQDFgEfnKt6dzJvZXvHUHZYf3U4HRt9eu3R6eLRA="
         }
       ]
     },
@@ -1722,7 +1722,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12083"
+          "Value": "11459"
         },
         {
           "Name": "Content-Type",
@@ -1730,11 +1730,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"v0McGBiazhZVWO4i+K8f33NGTNncE82HBvk7fCvtGbI=\""
+          "Value": "\"xkw58yfEuJSXeiQd/1o8aKXsdMwn151A5Cjgw+MU2iQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Jul 2025 13:40:32 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1744,12 +1744,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-v0McGBiazhZVWO4i+K8f33NGTNncE82HBvk7fCvtGbI="
+          "Value": "sha256-xkw58yfEuJSXeiQd/1o8aKXsdMwn151A5Cjgw+MU2iQ="
         }
       ]
     },
     {
-      "Route": "css/site.fkqhv57e7m.css",
+      "Route": "css/site.enr1tpjwqt.css",
       "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1759,7 +1759,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12083"
+          "Value": "11459"
         },
         {
           "Name": "Content-Type",
@@ -1767,11 +1767,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"v0McGBiazhZVWO4i+K8f33NGTNncE82HBvk7fCvtGbI=\""
+          "Value": "\"xkw58yfEuJSXeiQd/1o8aKXsdMwn151A5Cjgw+MU2iQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Jul 2025 13:40:32 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1781,7 +1781,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fkqhv57e7m"
+          "Value": "enr1tpjwqt"
         },
         {
           "Name": "label",
@@ -1789,7 +1789,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-v0McGBiazhZVWO4i+K8f33NGTNncE82HBvk7fCvtGbI="
+          "Value": "sha256-xkw58yfEuJSXeiQd/1o8aKXsdMwn151A5Cjgw+MU2iQ="
         }
       ]
     },
@@ -1876,6 +1876,51 @@
       ]
     },
     {
+      "Route": "js/register.93vev8mv8y.js",
+      "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\js\\register.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11318"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5VOvjyRiEzla0eECFhxe7Ss2UGtV/Ai59KADupt1mMQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "93vev8mv8y"
+        },
+        {
+          "Name": "label",
+          "Value": "js/register.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5VOvjyRiEzla0eECFhxe7Ss2UGtV/Ai59KADupt1mMQ="
+        }
+      ]
+    },
+    {
       "Route": "js/register.js",
       "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\js\\register.js",
       "Selectors": [],
@@ -1886,7 +1931,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11703"
+          "Value": "11318"
         },
         {
           "Name": "Content-Type",
@@ -1894,11 +1939,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"mrYcGaiFjL6fNrxrMt6wbsUalMc9yQsUvc9wKoW+//0=\""
+          "Value": "\"5VOvjyRiEzla0eECFhxe7Ss2UGtV/Ai59KADupt1mMQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Jul 2025 12:16:19 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1908,57 +1953,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-mrYcGaiFjL6fNrxrMt6wbsUalMc9yQsUvc9wKoW+//0="
+          "Value": "sha256-5VOvjyRiEzla0eECFhxe7Ss2UGtV/Ai59KADupt1mMQ="
         }
       ]
     },
     {
-      "Route": "js/register.y1updij4tc.js",
-      "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\js\\register.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "11703"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"mrYcGaiFjL6fNrxrMt6wbsUalMc9yQsUvc9wKoW+//0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 18 Jul 2025 12:16:19 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "y1updij4tc"
-        },
-        {
-          "Name": "label",
-          "Value": "js/register.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-mrYcGaiFjL6fNrxrMt6wbsUalMc9yQsUvc9wKoW+//0="
-        }
-      ]
-    },
-    {
-      "Route": "js/site.dx9s1k7210.js",
+      "Route": "js/site.flu97hwqnq.js",
       "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1968,7 +1968,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12155"
+          "Value": "11785"
         },
         {
           "Name": "Content-Type",
@@ -1976,11 +1976,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"v302KOr9P5/YQOFdib49OAOtoD2ehNgD33M8F9HIjJc=\""
+          "Value": "\"3TGt5RXm3Gf5ll2+S5qM/BquhCfz1Y5r+mCybx2Wgro=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 10 Jul 2025 14:40:34 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1990,7 +1990,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "dx9s1k7210"
+          "Value": "flu97hwqnq"
         },
         {
           "Name": "label",
@@ -1998,7 +1998,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-v302KOr9P5/YQOFdib49OAOtoD2ehNgD33M8F9HIjJc="
+          "Value": "sha256-3TGt5RXm3Gf5ll2+S5qM/BquhCfz1Y5r+mCybx2Wgro="
         }
       ]
     },
@@ -2013,7 +2013,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12155"
+          "Value": "11785"
         },
         {
           "Name": "Content-Type",
@@ -2021,11 +2021,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"v302KOr9P5/YQOFdib49OAOtoD2ehNgD33M8F9HIjJc=\""
+          "Value": "\"3TGt5RXm3Gf5ll2+S5qM/BquhCfz1Y5r+mCybx2Wgro=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 10 Jul 2025 14:40:34 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2035,7 +2035,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-v302KOr9P5/YQOFdib49OAOtoD2ehNgD33M8F9HIjJc="
+          "Value": "sha256-3TGt5RXm3Gf5ll2+S5qM/BquhCfz1Y5r+mCybx2Wgro="
         }
       ]
     },
@@ -5658,7 +5658,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1153"
+          "Value": "1131"
         },
         {
           "Name": "Content-Type",
@@ -5666,11 +5666,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ZH6pA6BSx6fuHZvdaKph1DwUJ+VSYilIiEQu8ilnvqk=\""
+          "Value": "\"WzAxfJw1u28FEBxQHehmzGhSq5tlXc9ZQXM/ZkTD69A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Jul 2025 10:22:37 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5680,12 +5680,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ZH6pA6BSx6fuHZvdaKph1DwUJ+VSYilIiEQu8ilnvqk="
+          "Value": "sha256-WzAxfJw1u28FEBxQHehmzGhSq5tlXc9ZQXM/ZkTD69A="
         }
       ]
     },
     {
-      "Route": "lib/bootstrap/LICENSE.81b7ukuj9c",
+      "Route": "lib/bootstrap/LICENSE.z6qzljqjd0",
       "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\lib\\bootstrap\\LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5695,7 +5695,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1153"
+          "Value": "1131"
         },
         {
           "Name": "Content-Type",
@@ -5703,11 +5703,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ZH6pA6BSx6fuHZvdaKph1DwUJ+VSYilIiEQu8ilnvqk=\""
+          "Value": "\"WzAxfJw1u28FEBxQHehmzGhSq5tlXc9ZQXM/ZkTD69A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Jul 2025 10:22:37 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5717,7 +5717,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "81b7ukuj9c"
+          "Value": "z6qzljqjd0"
         },
         {
           "Name": "label",
@@ -5725,7 +5725,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ZH6pA6BSx6fuHZvdaKph1DwUJ+VSYilIiEQu8ilnvqk="
+          "Value": "sha256-WzAxfJw1u28FEBxQHehmzGhSq5tlXc9ZQXM/ZkTD69A="
         }
       ]
     },
@@ -5894,7 +5894,7 @@
       ]
     },
     {
-      "Route": "lib/jquery-validation-unobtrusive/LICENSE.356vix0kms.txt",
+      "Route": "lib/jquery-validation-unobtrusive/LICENSE.l3n5xuwxn8.txt",
       "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5904,7 +5904,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1139"
+          "Value": "1116"
         },
         {
           "Name": "Content-Type",
@@ -5912,11 +5912,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s=\""
+          "Value": "\"z8IfXovWVa6ZfuyRYTi3B7HSkLgycsAqlcn4IbjIcxA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Jul 2025 10:22:38 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5926,7 +5926,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "356vix0kms"
+          "Value": "l3n5xuwxn8"
         },
         {
           "Name": "label",
@@ -5934,7 +5934,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s="
+          "Value": "sha256-z8IfXovWVa6ZfuyRYTi3B7HSkLgycsAqlcn4IbjIcxA="
         }
       ]
     },
@@ -5949,7 +5949,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1139"
+          "Value": "1116"
         },
         {
           "Name": "Content-Type",
@@ -5957,11 +5957,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s=\""
+          "Value": "\"z8IfXovWVa6ZfuyRYTi3B7HSkLgycsAqlcn4IbjIcxA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Jul 2025 10:22:38 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5971,12 +5971,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s="
+          "Value": "sha256-z8IfXovWVa6ZfuyRYTi3B7HSkLgycsAqlcn4IbjIcxA="
         }
       ]
     },
     {
-      "Route": "lib/jquery-validation/dist/additional-methods.ay5nd8zt9x.js",
+      "Route": "lib/jquery-validation/dist/additional-methods.gcjdx5jb8l.js",
       "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5986,7 +5986,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "52977"
+          "Value": "51466"
         },
         {
           "Name": "Content-Type",
@@ -5994,11 +5994,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4jrcLBsi0Ugm8iLKdqDsAyaCDjkscYZdoGuNH/zqs4E=\""
+          "Value": "\"0HeMWyQUbTbe7SGnSYbjj9+HVA0hKDmEUtbYoTKe+Bk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Jul 2025 10:22:38 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6008,7 +6008,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ay5nd8zt9x"
+          "Value": "gcjdx5jb8l"
         },
         {
           "Name": "label",
@@ -6016,7 +6016,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4jrcLBsi0Ugm8iLKdqDsAyaCDjkscYZdoGuNH/zqs4E="
+          "Value": "sha256-0HeMWyQUbTbe7SGnSYbjj9+HVA0hKDmEUtbYoTKe+Bk="
         }
       ]
     },
@@ -6031,7 +6031,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "52977"
+          "Value": "51466"
         },
         {
           "Name": "Content-Type",
@@ -6039,11 +6039,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4jrcLBsi0Ugm8iLKdqDsAyaCDjkscYZdoGuNH/zqs4E=\""
+          "Value": "\"0HeMWyQUbTbe7SGnSYbjj9+HVA0hKDmEUtbYoTKe+Bk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Jul 2025 10:22:38 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6053,12 +6053,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4jrcLBsi0Ugm8iLKdqDsAyaCDjkscYZdoGuNH/zqs4E="
+          "Value": "sha256-0HeMWyQUbTbe7SGnSYbjj9+HVA0hKDmEUtbYoTKe+Bk="
         }
       ]
     },
     {
-      "Route": "lib/jquery-validation/dist/additional-methods.min.9oaff4kq20.js",
+      "Route": "lib/jquery-validation/dist/additional-methods.min.35gxhxa0gh.js",
       "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -6068,7 +6068,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "22177"
+          "Value": "22174"
         },
         {
           "Name": "Content-Type",
@@ -6076,11 +6076,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"N11IyJpHTgDcSCb3AfX4VrBnpGQeem1NoNzzgcXVyCc=\""
+          "Value": "\"90Rlzuz8pIZK4g9o2I7nGK+9n5cU9Rbdt4GtxRO5arA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Jul 2025 10:22:38 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6090,7 +6090,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9oaff4kq20"
+          "Value": "35gxhxa0gh"
         },
         {
           "Name": "label",
@@ -6098,7 +6098,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-N11IyJpHTgDcSCb3AfX4VrBnpGQeem1NoNzzgcXVyCc="
+          "Value": "sha256-90Rlzuz8pIZK4g9o2I7nGK+9n5cU9Rbdt4GtxRO5arA="
         }
       ]
     },
@@ -6113,7 +6113,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "22177"
+          "Value": "22174"
         },
         {
           "Name": "Content-Type",
@@ -6121,11 +6121,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"N11IyJpHTgDcSCb3AfX4VrBnpGQeem1NoNzzgcXVyCc=\""
+          "Value": "\"90Rlzuz8pIZK4g9o2I7nGK+9n5cU9Rbdt4GtxRO5arA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Jul 2025 10:22:38 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6135,7 +6135,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-N11IyJpHTgDcSCb3AfX4VrBnpGQeem1NoNzzgcXVyCc="
+          "Value": "sha256-90Rlzuz8pIZK4g9o2I7nGK+9n5cU9Rbdt4GtxRO5arA="
         }
       ]
     },
@@ -6314,7 +6314,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1117"
+          "Value": "1095"
         },
         {
           "Name": "Content-Type",
@@ -6322,11 +6322,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"geHEkw/WGPdaHQMRq5HuNY9snliNzU/y2OW8ycnhGXw=\""
+          "Value": "\"85iHjKszi4aWOL2sGurna/OsEbK4nabgtovBpkVzNEA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Jul 2025 10:22:38 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6336,12 +6336,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-geHEkw/WGPdaHQMRq5HuNY9snliNzU/y2OW8ycnhGXw="
+          "Value": "sha256-85iHjKszi4aWOL2sGurna/OsEbK4nabgtovBpkVzNEA="
         }
       ]
     },
     {
-      "Route": "lib/jquery-validation/LICENSE.x0q3zqp4vz.md",
+      "Route": "lib/jquery-validation/LICENSE.xzw0cte36n.md",
       "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "Selectors": [],
       "ResponseHeaders": [
@@ -6351,7 +6351,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1117"
+          "Value": "1095"
         },
         {
           "Name": "Content-Type",
@@ -6359,11 +6359,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"geHEkw/WGPdaHQMRq5HuNY9snliNzU/y2OW8ycnhGXw=\""
+          "Value": "\"85iHjKszi4aWOL2sGurna/OsEbK4nabgtovBpkVzNEA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Jul 2025 10:22:38 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6373,7 +6373,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "x0q3zqp4vz"
+          "Value": "xzw0cte36n"
         },
         {
           "Name": "label",
@@ -6381,7 +6381,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-geHEkw/WGPdaHQMRq5HuNY9snliNzU/y2OW8ycnhGXw="
+          "Value": "sha256-85iHjKszi4aWOL2sGurna/OsEbK4nabgtovBpkVzNEA="
         }
       ]
     },
@@ -6632,7 +6632,7 @@
       ]
     },
     {
-      "Route": "lib/jquery/LICENSE.mlv21k5csn.txt",
+      "Route": "lib/jquery/LICENSE.jfsiqqwiad.txt",
       "AssetFile": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
@@ -6642,7 +6642,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1117"
+          "Value": "1097"
         },
         {
           "Name": "Content-Type",
@@ -6650,11 +6650,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=\""
+          "Value": "\"kR0ThRjy07+hq4p08nfdkjN+pI94Gj2rK5lyE0buITU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Jul 2025 10:22:38 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6664,7 +6664,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "mlv21k5csn"
+          "Value": "jfsiqqwiad"
         },
         {
           "Name": "label",
@@ -6672,7 +6672,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk="
+          "Value": "sha256-kR0ThRjy07+hq4p08nfdkjN+pI94Gj2rK5lyE0buITU="
         }
       ]
     },
@@ -6687,7 +6687,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1117"
+          "Value": "1097"
         },
         {
           "Name": "Content-Type",
@@ -6695,11 +6695,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=\""
+          "Value": "\"kR0ThRjy07+hq4p08nfdkjN+pI94Gj2rK5lyE0buITU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Jul 2025 10:22:38 GMT"
+          "Value": "Fri, 18 Jul 2025 17:17:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6709,7 +6709,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk="
+          "Value": "sha256-kR0ThRjy07+hq4p08nfdkjN+pI94Gj2rK5lyE0buITU="
         }
       ]
     }

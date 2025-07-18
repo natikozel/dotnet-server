@@ -1,4 +1,4 @@
-@page
+    @page
 @model Connect4Server.Pages.PlayersModel
 @{
     ViewData["Title"] = "Players";
@@ -78,7 +78,7 @@
                     @if (Model.Players != null && Model.Players.Any())
                     {
                         <!-- Statistics Overview -->
-                        <div class="row mb-5">
+                        <div class="row mb-3 mt-5">
                             <div class="col-md-3 mb-4">
                                 <div class="stats-card">
                                     <div class="stats-icon bg-primary">
@@ -130,8 +130,8 @@
                             <div class="col-12">
                                 <div class="main-card">
                                     <div class="card-header d-flex justify-content-between align-items-center">
-                                        <h5 class="mb-0">Player Statistics</h5>
-                                        <div class="d-flex gap-2 text-black">
+                                        <h5 class="mb-0 text-black">Player Statistics</h5>
+                                        <div class="d-flex gap-2">
                                             <span class="badge bg-primary">@Model.Players.Count() Players</span>
                                             <span class="badge bg-success">@Model.Players.Count(p => p.GamesWon > 0) Winners</span>
                                         </div>

@@ -12,11 +12,35 @@ namespace Connect4Server.Controllers
     {
         private readonly Connect4Context _context;
         private readonly Random _random;
+        private const int GAME_TIMEOUT_MINUTES = 5;
 
         public GamesController(Connect4Context context)
         {
             _context = context;
             _random = new Random();
+        }
+
+        /// <summary>
+        /// Checks if a game has timed out (been InProgress for more than 5 minutes)
+        /// and automatically marks it as "Lost" if so.
+        /// </summary>
+        /// <param name="game">The game to check for timeout</param>
+        /// <returns>True if the game was timed out, false otherwise</returns>
+        private async Task<bool> CheckAndHandleGameTimeout(Game game)
+        {
+            if (game.Status == "InProgress" && game.StartTime.AddMinutes(GAME_TIMEOUT_MINUTES) < DateTime.Now)
+            {
+                // Game has timed out - mark as lost
+                game.Status = "Lost";
+                game.Winner = "CPU";
+                game.EndTime = DateTime.Now;
+                game.Player.GamesPlayed++;
+                game.Player.GamesLost++;
+                
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -100,6 +124,17 @@ namespace Connect4Server.Controllers
                     {
                         Success = false,
                         Message = "Game not found"
+                    });
+                }
+
+                // Check for game timeout before processing the move
+                var wasTimedOut = await CheckAndHandleGameTimeout(game);
+                if (wasTimedOut)
+                {
+                    return Ok(new MakeMoveResponse
+                    {
+                        Success = false,
+                        Message = "Game has timed out and was marked as lost"
                     });
                 }
 
@@ -270,7 +305,60 @@ namespace Connect4Server.Controllers
                 return NotFound();
             }
 
+            // Check for game timeout
+            await CheckAndHandleGameTimeout(game);
+
             return Ok(MapToDto(game));
+        }
+
+        /// <summary>
+        /// Cleans up all timed-out games by marking them as "Lost".
+        /// This endpoint can be called periodically to clean up abandoned games.
+        /// </summary>
+        /// <returns>Response with cleanup results</returns>
+        [HttpPost("cleanup-timeouts")]
+        public async Task<ActionResult<CleanupTimeoutsResponse>> CleanupTimeouts()
+        {
+            try
+            {
+                var timeoutThreshold = DateTime.Now.AddMinutes(-GAME_TIMEOUT_MINUTES);
+                var timedOutGames = await _context.Games
+                    .Include(g => g.Player)
+                    .Where(g => g.Status == "InProgress" && g.StartTime < timeoutThreshold)
+                    .ToListAsync();
+
+                int cleanedCount = 0;
+                foreach (var game in timedOutGames)
+                {
+                    game.Status = "Lost";
+                    game.Winner = "CPU";
+                    game.EndTime = DateTime.Now;
+                    game.Player.GamesPlayed++;
+                    game.Player.GamesLost++;
+                    cleanedCount++;
+                }
+
+                if (cleanedCount > 0)
+                {
+                    await _context.SaveChangesAsync();
+                }
+
+                return Ok(new CleanupTimeoutsResponse
+                {
+                    Success = true,
+                    Message = $"Cleaned up {cleanedCount} timed-out games",
+                    CleanedCount = cleanedCount
+                });
+            }
+            catch (Exception ex)
+            {
+                return Ok(new CleanupTimeoutsResponse
+                {
+                    Success = false,
+                    Message = $"Error cleaning up timeouts: {ex.Message}",
+                    CleanedCount = 0
+                });
+            }
         }
 
         /// <summary>
@@ -416,4 +504,4 @@ namespace Connect4Server.Controllers
             return true;
         }
     }
-} 
+}

@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Player & Game Statistics";
 }
+@Html.AntiForgeryToken()
 
 <div class="container-fluid py-5">
     <div class="row mb-5">
@@ -291,76 +292,75 @@
                     <div class="tab-pane fade" id="player-lookup" role="tabpanel">
                         <div class="row">
                             <div class="col-md-6 mb-4">
-                                <form method="post">
-                                    <input type="hidden" name="ViewMode" value="player-lookup" />
-                                    <div class="mb-3">
-                                        <label class="form-label">Select Player:</label>
-                                        <select asp-for="SelectedPlayerId" class="form-select" onchange="this.form.submit()">
-                                            <option value="0">-- Choose a player --</option>
-                                            @foreach (var player in Model.AllPlayers)
-                                            {
-                                                <option value="@player.Id">@player.FirstName (@player.PlayerId)</option>
-                                            }
-                                        </select>
-                                    </div>
-                                </form>
+                                <div class="mb-3">
+                                    <label class="form-label">Select Player:</label>
+                                    <select id="playerSelect" class="form-select">
+                                        <option value="0">-- Choose a player --</option>
+                                        @foreach (var player in Model.AllPlayers)
+                                        {
+                                            <option value="@player.Id">@player.FirstName (@player.PlayerId)</option>
+                                        }
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-                        @if (Model.SelectedPlayer != null)
-                        {
-                            <div class="row mt-4">
-                                <div class="col-md-4 mb-4">
-                                    <div class="player-profile">
-                                        <div class="player-avatar-lg">
-                                            @Model.SelectedPlayer.FirstName.Substring(0, 1).ToUpper()
+                        <div id="playerDetailsContainer">
+                            @if (Model.SelectedPlayer != null)
+                            {
+                                <div class="row mt-4">
+                                    <div class="col-md-4 mb-4">
+                                        <div class="player-profile">
+                                            <div class="player-avatar-lg">
+                                                @Model.SelectedPlayer.FirstName.Substring(0, 1).ToUpper()
+                                            </div>
+                                            <h4 class="mt-3">@Model.SelectedPlayer.FirstName</h4>
+                                            <p class="text-muted">Player ID: @Model.SelectedPlayer.PlayerId</p>
+                                            <p class="text-muted">@Model.SelectedPlayer.Country</p>
+                                            <p class="text-muted">@Model.SelectedPlayer.PhoneNumber</p>
+                                            <p class="text-muted">Joined @Model.SelectedPlayer.RegistrationDate.ToString("MMMM yyyy")</p>
                                         </div>
-                                        <h4 class="mt-3">@Model.SelectedPlayer.FirstName</h4>
-                                        <p class="text-muted">Player ID: @Model.SelectedPlayer.PlayerId</p>
-                                        <p class="text-muted">@Model.SelectedPlayer.Country</p>
-                                        <p class="text-muted">@Model.SelectedPlayer.PhoneNumber</p>
-                                        <p class="text-muted">Joined @Model.SelectedPlayer.RegistrationDate.ToString("MMMM yyyy")</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h5 class="mb-4">Game History</h5>
+                                        @if (Model.SelectedPlayerGames.Any())
+                                        {
+                                            <div class="table-responsive">
+                                                <table class="table table-sm">
+                                                    <thead class="table-light">
+                                                        <tr>
+                                                            <th class="py-3">Game ID</th>
+                                                            <th class="py-3">Started</th>
+                                                            <th class="py-3">Status</th>
+                                                            <th class="py-3">Result</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var game in Model.SelectedPlayerGames)
+                                                        {
+                                                            <tr>
+                                                                <td class="py-3">#@game.Id</td>
+                                                                <td class="py-3">@game.StartTime.ToString("MMM dd, HH:mm")</td>
+                                                                <td class="py-3">
+                                                                    <span class="badge @(game.Status == "Won" ? "bg-success" : game.Status == "Lost" ? "bg-danger" : "bg-primary")">
+                                                                        @game.Status
+                                                                    </span>
+                                                                </td>
+                                                                <td class="py-3">@(string.IsNullOrEmpty(game.Winner) ? "-" : game.Winner)</td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <p class="text-muted">No games played yet.</p>
+                                        }
                                     </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <h5 class="mb-4">Game History</h5>
-                                    @if (Model.SelectedPlayerGames.Any())
-                                    {
-                                        <div class="table-responsive">
-                                            <table class="table table-sm">
-                                                <thead class="table-light">
-                                                    <tr>
-                                                        <th class="py-3">Game ID</th>
-                                                        <th class="py-3">Started</th>
-                                                        <th class="py-3">Status</th>
-                                                        <th class="py-3">Result</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach (var game in Model.SelectedPlayerGames)
-                                                    {
-                                                        <tr>
-                                                            <td class="py-3">#@game.Id</td>
-                                                            <td class="py-3">@game.StartTime.ToString("MMM dd, HH:mm")</td>
-                                                            <td class="py-3">
-                                                                <span class="badge @(game.Status == "Won" ? "bg-success" : game.Status == "Lost" ? "bg-danger" : "bg-primary")">
-                                                                    @game.Status
-                                                                </span>
-                                                            </td>
-                                                            <td class="py-3">@(string.IsNullOrEmpty(game.Winner) ? "-" : game.Winner)</td>
-                                                        </tr>
-                                                    }
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    }
-                                    else
-                                    {
-                                        <p class="text-muted">No games played yet.</p>
-                                    }
-                                </div>
-                            </div>
-                        }
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
@@ -598,4 +598,45 @@
         padding: 16px 16px;
     }
 }
-</style> 
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const playerSelect = document.getElementById('playerSelect');
+    const playerDetailsContainer = document.getElementById('playerDetailsContainer');
+    
+    if (playerSelect) {
+        playerSelect.addEventListener('change', function() {
+            const selectedPlayerId = this.value;
+            
+            if (selectedPlayerId === '0') {
+                // Clear the details if no player is selected
+                playerDetailsContainer.innerHTML = '';
+                return;
+            }
+            
+            // Show loading state
+            playerDetailsContainer.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div><p class="mt-2">Loading player details...</p></div>';
+            
+            // Make AJAX request to get player details
+            const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+            fetch('/Statistics?handler=GetPlayerDetails', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'RequestVerificationToken': token
+                },
+                body: `selectedPlayerId=${selectedPlayerId}&__RequestVerificationToken=${token}`
+            })
+            .then(response => response.text())
+            .then(html => {
+                playerDetailsContainer.innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Error loading player details:', error);
+                playerDetailsContainer.innerHTML = '<div class="alert alert-danger">Error loading player details. Please try again.</div>';
+            });
+        });
+    }
+});
+</script> 

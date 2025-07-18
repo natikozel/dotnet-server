@@ -55,6 +55,58 @@ namespace Connect4Server.Pages
             }
         }
 
+        public async Task<IActionResult> OnPostGetPlayerDetailsAsync(int selectedPlayerId)
+        {
+            if (selectedPlayerId > 0)
+            {
+                var player = await _context.Players.FindAsync(selectedPlayerId);
+                if (player != null)
+                {
+                    var games = await _context.Games
+                        .Where(g => g.PlayerId == selectedPlayerId)
+                        .OrderByDescending(g => g.StartTime)
+                        .ToListAsync();
+
+                    // Check and handle timeouts for all games
+                    await CheckAndHandleGameTimeouts(games);
+
+                    // Return partial view with player details
+                    return Partial("_PlayerDetails", new PlayerDetailsViewModel
+                    {
+                        Player = player,
+                        Games = games
+                    });
+                }
+            }
+
+            return Content("<p class='text-muted'>No player selected.</p>");
+        }
+
+        /// <summary>
+        /// Checks and handles timeouts for a list of games
+        /// </summary>
+        /// <param name="games">List of games to check for timeouts</param>
+        private async Task CheckAndHandleGameTimeouts(IList<Game> games)
+        {
+            const int GAME_TIMEOUT_MINUTES = 5;
+            var timeoutThreshold = DateTime.Now.AddMinutes(-GAME_TIMEOUT_MINUTES);
+            
+            foreach (var game in games)
+            {
+                if (game.Status == "InProgress" && game.StartTime < timeoutThreshold)
+                {
+                    // Game has timed out - mark as lost
+                    game.Status = "Lost";
+                    game.Winner = "CPU";
+                    game.EndTime = DateTime.Now;
+                    game.Player.GamesPlayed++;
+                    game.Player.GamesLost++;
+                }
+            }
+            
+            await _context.SaveChangesAsync();
+        }
+
         private async Task LoadAllDataAsync()
         {
             // Load all players with sorting
@@ -88,6 +140,9 @@ namespace Connect4Server.Pages
                 })
                 .OrderByDescending(p => p.FirstName)
                 .ToList();
+
+            // Check and handle timeouts for all games
+            await CheckAndHandleGameTimeouts(allGames);
 
             // Load recent games (first game per player for distinct functionality)
             RecentGames = allGames
@@ -152,5 +207,11 @@ namespace Connect4Server.Pages
     {
         public string CountryName { get; set; } = string.Empty;
         public List<Player> Players { get; set; } = new List<Player>();
+    }
+
+    public class PlayerDetailsViewModel
+    {
+        public Player Player { get; set; } = null!;
+        public IList<Game> Games { get; set; } = new List<Game>();
     }
 } 

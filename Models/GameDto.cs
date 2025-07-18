@@ -98,4 +98,11 @@ namespace Connect4Server.Models
         public string Message { get; set; } = string.Empty;
         public GameDto? Game { get; set; }
     }
+
+    public class CleanupTimeoutsResponse
+    {
+        public bool Success { get; set; }
+        public string Message { get; set; } = string.Empty;
+        public int CleanedCount { get; set; }
+    }
 } 
