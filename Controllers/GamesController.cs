@@ -40,12 +40,19 @@ namespace Connect4Server.Controllers
                     });
                 }
 
+                // Create empty board as jagged array for proper JSON serialization
+                var emptyBoard = new int[6][];
+                for (int i = 0; i < 6; i++)
+                {
+                    emptyBoard[i] = new int[7];
+                }
+                
                 var game = new Game
                 {
                     PlayerId = player.Id,
                     StartTime = DateTime.Now,
                     Status = "InProgress",
-                    BoardState = JsonSerializer.Serialize(new int[6, 7]),
+                    BoardState = JsonSerializer.Serialize(emptyBoard),
                     CurrentPlayer = "Player",
                     Winner = null
                 };
@@ -114,7 +121,26 @@ namespace Connect4Server.Controllers
                     });
                 }
 
-                var board = JsonSerializer.Deserialize<int[,]>(game.BoardState) ?? new int[6, 7];
+                // Deserialize jagged array and convert to 2D array for game logic
+                var boardJagged = JsonSerializer.Deserialize<int[][]>(game.BoardState);
+                if (boardJagged == null)
+                {
+                    boardJagged = new int[6][];
+                    for (int i = 0; i < 6; i++)
+                    {
+                        boardJagged[i] = new int[7];
+                    }
+                }
+                
+                // Convert to 2D array for existing game logic
+                var board = new int[6, 7];
+                for (int i = 0; i < 6; i++)
+                {
+                    for (int j = 0; j < 7; j++)
+                    {
+                        board[i, j] = boardJagged[i][j];
+                    }
+                }
 
                 if (request.Column < 0 || request.Column > 6)
                 {
@@ -160,10 +186,15 @@ namespace Connect4Server.Controllers
                     game.EndTime = DateTime.Now;
                     game.Player.GamesPlayed++;
                 }
-                else
+                
+                // Store CPU move BEFORE placing it on board to return the correct move
+                int? actualCpuMove = null;
+                if (game.Status == "InProgress")
                 {
                     // CPU makes its move if game continues
                     var cpuMove = MakeCpuMove(board);
+                    actualCpuMove = cpuMove;
+                    
                     if (cpuMove != -1)
                     {
                         // Drop CPU's piece in selected column
@@ -195,7 +226,17 @@ namespace Connect4Server.Controllers
                     }
                 }
 
-                game.BoardState = JsonSerializer.Serialize(board);
+                // Convert 2D array back to jagged array for serialization
+                var updatedBoardJagged = new int[6][];
+                for (int i = 0; i < 6; i++)
+                {
+                    updatedBoardJagged[i] = new int[7];
+                    for (int j = 0; j < 7; j++)
+                    {
+                        updatedBoardJagged[i][j] = board[i, j];
+                    }
+                }
+                game.BoardState = JsonSerializer.Serialize(updatedBoardJagged);
                 game.CurrentPlayer = game.Status == "InProgress" ? "Player" : game.CurrentPlayer;
 
                 await _context.SaveChangesAsync();
@@ -205,7 +246,7 @@ namespace Connect4Server.Controllers
                     Success = true,
                     Message = "Move made successfully",
                     Game = MapToDto(game),
-                    CpuMove = game.Status == "InProgress" ? MakeCpuMove(JsonSerializer.Deserialize<int[,]>(game.BoardState) ?? new int[6, 7]) : null
+                    CpuMove = actualCpuMove // Return the actual CPU move that was made
                 });
             }
             catch (Exception ex)
@@ -240,7 +281,19 @@ namespace Connect4Server.Controllers
         /// <returns>GameDto with deserialized board and player data</returns>
         private GameDto MapToDto(Game game)
         {
-            var board = JsonSerializer.Deserialize<int[,]>(game.BoardState) ?? new int[6, 7];
+            // Deserialize jagged array directly (no conversion needed)
+            var boardJagged = JsonSerializer.Deserialize<int[][]>(game.BoardState);
+            
+            // Create empty board if deserialization fails
+            if (boardJagged == null)
+            {
+                boardJagged = new int[6][];
+                for (int i = 0; i < 6; i++)
+                {
+                    boardJagged[i] = new int[7];
+                }
+            }
+            
             return new GameDto
             {
                 Id = game.Id,
@@ -248,7 +301,7 @@ namespace Connect4Server.Controllers
                 StartTime = game.StartTime,
                 EndTime = game.EndTime,
                 Status = game.Status,
-                Board = board,
+                Board = boardJagged, // Use jagged array directly
                 CurrentPlayer = game.CurrentPlayer,
                 Winner = game.Winner,
                 Player = game.Player != null ? new PlayerDto

@@ -5,236 +5,256 @@
     ViewData["AdditionalStyles"] = "~/css/players.css";
 }
 
-@section Scripts {
-    <script src="~/js/players.js" asp-append-version="true"></script>
-}
-
-<!-- Hero Section -->
-<section class="hero-section">
-    <div class="container">
-        <h1>👥 Registered Players</h1>
-        <p class="lead">Explore our Connect 4 community and player statistics</p>
-    </div>
-</section>
-
-<!-- Query Controls -->
-<section class="query-section">
-    <div class="container">
-        <div class="card shadow-medium">
-            <div class="card-header">
-                <h4 class="mb-0">🔍 Filter Players</h4>
-            </div>
-            <div class="card-body">
-                <div class="row g-3">
-                    <div class="col-md-3">
-                        <form method="post">
-                            <button type="submit" class="btn btn-primary w-100" asp-page-handler="ShowAll">
-                                📋 Show All Players
-                            </button>
-                        </form>
-                    </div>
-                    <div class="col-md-3">
-                        <form method="post">
-                            <button type="submit" class="btn btn-success w-100" asp-page-handler="ShowWinners">
-                                🏆 Players with Wins
-                            </button>
-                        </form>
-                    </div>
-                    <div class="col-md-6">
-                        <form method="post" class="d-flex">
-                            <input type="text" class="form-control me-2" name="Country" 
-                                   placeholder="🌍 Enter country name..." />
-                            <button type="submit" class="btn btn-info" asp-page-handler="ByCountry">
-                                🌐 Filter by Country
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+<div class="container-fluid py-5">
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="fw-bold text-dark mb-2">Players Dashboard</h2>
+            <p class="text-muted mb-0">Manage and view all registered Connect 4 players</p>
         </div>
     </div>
-</section>
 
-<!-- Players Results -->
-@if (Model.Players != null && Model.Players.Any())
-{
-    <section class="results-section">
-        <div class="container">
-            <!-- Summary Statistics -->
-            <div class="stats-grid mb-4">
-                <div class="stats-card">
-                    <span class="stats-icon">👥</span>
-                    <div class="stats-number">@Model.Players.Count()</div>
-                    <div class="stats-label">Total Players</div>
-                </div>
-                <div class="stats-card">
-                    <span class="stats-icon">🏆</span>
-                    <div class="stats-number">@Model.Players.Sum(p => p.GamesWon)</div>
-                    <div class="stats-label">Total Wins</div>
-                </div>
-                <div class="stats-card">
-                    <span class="stats-icon">🎮</span>
-                    <div class="stats-number">@Model.Players.Sum(p => p.GamesPlayed)</div>
-                    <div class="stats-label">Games Played</div>
-                </div>
-                <div class="stats-card">
-                    <span class="stats-icon">🌍</span>
-                    <div class="stats-number">@Model.Players.Select(p => p.Country).Distinct().Count()</div>
-                    <div class="stats-label">Countries</div>
-                </div>
-            </div>
-
-            <!-- Players Table -->
-            <div class="card shadow-large">
-                <div class="card-header">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h4 class="mb-0">📊 Player Statistics (@Model.Players.Count() results)</h4>
-                        <div class="d-flex gap-2">
-                            <span class="badge bg-primary">@Model.Players.Count() Players</span>
-                            <span class="badge bg-success">@Model.Players.Count(p => p.GamesWon > 0) Winners</span>
+    <!-- Filter Controls -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-12">
+            <div class="filter-card">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-lg-2 col-md-4">
+                            <form method="post">
+                                <button type="submit" class="btn btn-primary btn-custom w-100" asp-page-handler="ShowAll">
+                                    <i class="fas fa-list me-2"></i>All Players
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-lg-2 col-md-4">
+                            <form method="post">
+                                <button type="submit" class="btn btn-success btn-custom w-100" asp-page-handler="ShowWinners">
+                                    <i class="fas fa-trophy me-2"></i>Winners Only
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-lg-2 col-md-4">
+                            <form method="post">
+                                <button type="submit" class="btn btn-warning btn-custom w-100" asp-page-handler="TopPlayers">
+                                    <i class="fas fa-star me-2"></i>Top Players
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-lg-2 col-md-4">
+                            <form method="post">
+                                <button type="submit" class="btn btn-secondary btn-custom w-100" asp-page-handler="RecentPlayers">
+                                    <i class="fas fa-clock me-2"></i>Recent
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-lg-4 col-md-8">
+                            <form method="post" class="d-flex gap-2">
+                                <input asp-for="Country" class="form-control form-control-custom"
+                                       placeholder="Enter country name..." />
+                                <button type="submit" class="btn btn-info btn-custom right-pad" asp-page-handler="ByCountry">
+                                    <i class="fas fa-globe me-2"></i>By Country
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table table-hover mb-0">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">🆔 Player ID</th>
-                                    <th>👤 Name</th>
-                                    <th>📱 Phone</th>
-                                    <th>🌍 Country</th>
-                                    <th class="text-center">📅 Joined</th>
-                                    <th class="text-center">🎮 Played</th>
-                                    <th class="text-center">🏆 Won</th>
-                                    <th class="text-center">❌ Lost</th>
-                                    <th class="text-center">📈 Win Rate</th>
-                                    <th class="text-center">🏅 Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var player in Model.Players.OrderByDescending(p => p.GamesWon).ThenByDescending(p => p.GamesPlayed))
-                                {
-                                    <tr>
-                                        <td class="text-center">
-                                            <span class="badge bg-primary rounded-pill">@player.PlayerId</span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="player-avatar me-2">
-                                                    @player.FirstName.Substring(0, 1).ToUpper()
-                                                </div>
-                                                <strong>@player.FirstName</strong>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted">@player.PhoneNumber</span>
-                                        </td>
-                                        <td>
-                                            <span class="country-badge">@player.Country</span>
-                                        </td>
-                                        <td class="text-center">
-                                            <small class="text-muted">@player.RegistrationDate.ToString("MMM dd, yyyy")</small>
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="badge bg-info">@player.GamesPlayed</span>
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="badge bg-success">@player.GamesWon</span>
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="badge bg-danger">@player.GamesLost</span>
-                                        </td>
-                                        <td class="text-center">
-                                            @if (player.GamesPlayed > 0)
-                                            {
-                                                var winRate = (double)player.GamesWon / player.GamesPlayed * 100;
-                                                <div class="win-rate">
-                                                    <span class="win-rate-text">@($"{winRate:F1}%")</span>
-                                                    <div class="win-rate-bar">
-                                                        <div class="win-rate-fill" data-width="@($"{winRate}%")"></div>
-                                                    </div>
-                                                </div>
-                                            }
-                                            else
-                                            {
-                                                <span class="text-muted">-</span>
-                                            }
-                                        </td>
-                                        <td class="text-center">
-                                            @if (player.GamesWon >= 10)
-                                            {
-                                                <span class="status-badge legendary">🏅 Legend</span>
-                                            }
-                                            else if (player.GamesWon >= 5)
-                                            {
-                                                <span class="status-badge expert">⭐ Expert</span>
-                                            }
-                                            else if (player.GamesWon > 0)
-                                            {
-                                                <span class="status-badge player">🎮 Player</span>
-                                            }
-                                            else
-                                            {
-                                                <span class="status-badge newcomer">🆕 Newcomer</span>
-                                            }
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </div>
         </div>
-    </section>
-}
-else if (Model.QueryExecuted)
-{
-    <section class="no-results-section">
-        <div class="container">
-            <div class="card">
-                <div class="card-body text-center py-5">
-                    <div class="mb-4">
-                        <span class="large-icon">🔍</span>
-                    </div>
-                    <h4>No Results Found</h4>
-                    <p class="text-muted mb-4">No players match your search criteria. Try adjusting your filters.</p>
-                    <form method="post" class="d-inline">
-                        <button type="submit" class="btn btn-primary" asp-page-handler="ShowAll">
-                            📋 Show All Players
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-}
-else
-{
-    <section class="welcome-section">
-        <div class="container">
-            <div class="card">
-                <div class="card-body text-center py-5">
-                    <div class="mb-4">
-                        <span class="large-icon">👥</span>
-                    </div>
-                    <h4>Welcome to Players Dashboard</h4>
-                    <p class="text-muted mb-4">Use the filter options above to explore player information and statistics.</p>
-                    <div class="d-flex gap-2 justify-content-center">
-                        <form method="post" class="d-inline">
-                            <button type="submit" class="btn btn-primary" asp-page-handler="ShowAll">
-                                📋 View All Players
-                            </button>
-                        </form>
-                        <a asp-page="/Register" class="btn btn-success">
-                            📝 Register New Player
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-}
+    </div>
 
- 
+    <!-- Results -->
+    @if (Model.QueryExecuted)
+    {
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="results-card">
+                    <div class="card-header">
+                        <h4 class="mb-0 text-black">
+                            <i class="fas fa-users me-2"></i>@Model.QueryType
+
+                        </h4>
+                    </div>
+
+                    @if (Model.Players != null && Model.Players.Any())
+                    {
+                        <!-- Statistics Overview -->
+                        <div class="row mb-5">
+                            <div class="col-md-3 mb-4">
+                                <div class="stats-card">
+                                    <div class="stats-icon bg-primary">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="stats-content">
+                                        <h3>@Model.Players.Count()</h3>
+                                        <p>Total Players</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="stats-card">
+                                    <div class="stats-icon bg-success">
+                                        <i class="fas fa-trophy"></i>
+                                    </div>
+                                    <div class="stats-content">
+                                        <h3>@Model.Players.Sum(p => p.GamesWon)</h3>
+                                        <p>Total Wins</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="stats-card">
+                                    <div class="stats-icon bg-warning">
+                                        <i class="fas fa-gamepad"></i>
+                                    </div>
+                                    <div class="stats-content">
+                                        <h3>@Model.Players.Sum(p => p.GamesPlayed)</h3>
+                                        <p>Games Played</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="stats-card">
+                                    <div class="stats-icon bg-info">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                    <div class="stats-content">
+                                        <h3>@Model.Players.Select(p => p.Country).Distinct().Count()</h3>
+                                        <p>Countries</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Players Table -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="main-card">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="mb-0">Player Statistics</h5>
+                                        <div class="d-flex gap-2 text-black">
+                                            <span class="badge bg-primary">@Model.Players.Count() Players</span>
+                                            <span class="badge bg-success">@Model.Players.Count(p => p.GamesWon > 0) Winners</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover mb-0">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th class="py-3">Player</th>
+                                                        <th class="py-3">Contact</th>
+                                                        <th class="py-3">Country</th>
+                                                        <th class="py-3">Registered</th>
+                                                        <th class="text-center py-3">Games</th>
+                                                        <th class="text-center py-3">Won</th>
+                                                        <th class="text-center py-3">Lost</th>
+                                                        <th class="text-center py-3">Win Rate</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var player in Model.Players)
+                                                    {
+                                                        <tr>
+                                                            <td class="py-3">
+                                                                <div class="d-flex align-items-center">
+                                                                    <div class="player-avatar me-3">
+                                                                        @player.FirstName.Substring(0, 1).ToUpper()
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="fw-semibold">@player.FirstName</div>
+                                                                        <small class="text-muted">ID: @player.PlayerId</small>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="py-3">
+                                                                <small class="text-muted">@player.PhoneNumber</small>
+                                                            </td>
+                                                            <td class="py-3">@player.Country</td>
+                                                            <td class="py-3">
+                                                                <small class="text-muted">@player.RegistrationDate.ToString("MMM dd, yyyy")</small>
+                                                            </td>
+                                                            <td class="text-center py-3">
+                                                                <span class="badge bg-light text-dark">@player.GamesPlayed</span>
+                                                            </td>
+                                                            <td class="text-center py-3">
+                                                                <span class="badge bg-success">@player.GamesWon</span>
+                                                            </td>
+                                                            <td class="text-center py-3">
+                                                                <span class="badge bg-danger">@player.GamesLost</span>
+                                                            </td>
+                                                            <td class="text-center py-3">
+                                                                @{
+                                                                    var winRate = player.GamesPlayed > 0 ? (player.GamesWon * 100.0 / player.GamesPlayed) : 0;
+                                                                }
+                                                                <span class="badge @(winRate >= 50 ? "bg-success" : "bg-warning")">
+                                                                    @winRate.ToString("F0")%
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card-body text-center py-5">
+                            <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                            <h4>No Players Found</h4>
+                            <p class="text-muted">No players match your search criteria.</p>
+                            <a asp-page="/Register" class="btn btn-primary">
+                                <i class="fas fa-user-plus me-2"></i>Register First Player
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="welcome-card text-center">
+                    <i class="fas fa-users fa-4x text-primary mb-4"></i>
+                    <h3>Player Management Dashboard</h3>
+                    <p class="text-muted mb-4">Use the buttons above to view different player lists and statistics. You can see all players, filter by winners, view top performers, check recent registrations, or search by country.</p>
+                    <div class="row text-center">
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <i class="fas fa-list text-primary"></i>
+                                <h6 class>All Players</h6>
+                                <small>Complete list</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <i class="fas fa-trophy text-success"></i>
+                                <h6>Winners</h6>
+                                <small>Players with wins</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <i class="fas fa-star text-warning"></i>
+                                <h6>Top Players</h6>
+                                <small>Best win rates</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <i class="fas fa-clock text-info"></i>
+                                <h6>Recent</h6>
+                                <small>New registrations</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

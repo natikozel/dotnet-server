@@ -40,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Netanel.Kozel/OneDrive - abra-IT/Desktop/Final Project/Connect4Server/Pages/Management.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Netanel.Kozel/OneDrive - abra-IT/Desktop/Final Project/Connect4Server/Pages/Players.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Netanel.Kozel/OneDrive - abra-IT/Desktop/Final Project/Connect4Server/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Netanel.Kozel/OneDrive - abra-IT/Desktop/Final Project/Connect4Server/Pages/Statistics.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhdGlzdGljcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Netanel.Kozel/OneDrive - abra-IT/Desktop/Final Project/Connect4Server/Pages/_ViewImports.cshtml]

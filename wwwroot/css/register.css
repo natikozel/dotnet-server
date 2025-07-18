@@ -204,6 +204,12 @@
     left: 100%;
 }
 
+.card-header {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
 /* Info Card */
 .registration-section .col-lg-4 .card {
     background: rgba(255, 255, 255, 0.9);
@@ -525,6 +531,10 @@
 .success-overlay .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.right-pad {
+    padding-right: 40px;
 }
 
 @keyframes fadeIn {

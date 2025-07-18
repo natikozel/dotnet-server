@@ -9,6 +9,29 @@
     --connect4-hover-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
 }
 
+
+.full-width {
+    width: 100%;
+}
+
+.section {
+    width: 100%;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.step-item {
+    width: 320px;
+}
+
+.step-content {
+    text-align: start
+}
+
 .hero-section {
     background: var(--connect4-gradient);
     position: relative;
@@ -360,6 +383,7 @@
     font-weight: 600;
     display: block;
     margin-bottom: 0.3rem;
+    text-align: start;
 }
 
 .feature-content p {
@@ -436,17 +460,6 @@
     position: relative;
 }
 
-.game-rules h3::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: var(--connect4-gradient);
-    border-radius: 2px;
-}
 
 .rule-item {
     display: flex;
