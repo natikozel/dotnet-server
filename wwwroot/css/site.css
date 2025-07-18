@@ -295,6 +295,10 @@ body {
     color: black;
 }
 
+.right-pad {
+    padding-right: 40px;
+}
+
 .row {
     display: flex;
     justify-content: center;

@@ -533,9 +533,6 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.right-pad {
-    padding-right: 40px;
-}
 
 @keyframes fadeIn {
     from { opacity: 0; }
