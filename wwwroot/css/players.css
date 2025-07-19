@@ -354,10 +354,13 @@ body {
     transition: all 0.3s ease;
 }
 
+<<<<<<< HEAD
 .table th:hover {
     background: rgba(66, 153, 225, 0.1);
 }
 
+=======
+>>>>>>> 514437ecf573a2512eac05597f77e7d08cb162be
 .table th.sortable::after {
     content: '↕️';
     position: absolute;

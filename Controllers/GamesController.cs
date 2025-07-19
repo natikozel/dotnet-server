@@ -70,7 +70,7 @@ namespace Connect4Server.Controllers
                 {
                     emptyBoard[i] = new int[7];
                 }
-                
+
                 var game = new Game
                 {
                     PlayerId = player.Id,
@@ -504,4 +504,4 @@ namespace Connect4Server.Controllers
             return true;
         }
     }
-}
+} 
