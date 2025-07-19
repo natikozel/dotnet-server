@@ -413,6 +413,88 @@
       ]
     },
     {
+      "Route": "css/statistics.css",
+      "AssetFile": "css/statistics.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3997"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z7GkaYO/Pty9SRVv4N0qSs9Maf7f7ISa6yt6ZC1PksY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 19 Jul 2025 11:20:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z7GkaYO/Pty9SRVv4N0qSs9Maf7f7ISa6yt6ZC1PksY="
+        }
+      ]
+    },
+    {
+      "Route": "css/statistics.p2h311tj9e.css",
+      "AssetFile": "css/statistics.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3997"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z7GkaYO/Pty9SRVv4N0qSs9Maf7f7ISa6yt6ZC1PksY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 19 Jul 2025 11:20:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p2h311tj9e"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-z7GkaYO/Pty9SRVv4N0qSs9Maf7f7ISa6yt6ZC1PksY="
+        },
+        {
+          "Name": "label",
+          "Value": "css/statistics.css"
+        }
+      ]
+    },
+    {
       "Route": "js/players.js",
       "AssetFile": "js/players.js",
       "Selectors": [],

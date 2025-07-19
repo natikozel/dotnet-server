@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6Ak25+u6/MrPGi0p0FWWMfsRADnY6GFZSz8IH/Jl1cI=",
+  "Hash": "XzA6SXVaJ7HGoa7Gkm9ynlVefj2CVwctMuPMe3GdImQ=",
   "Source": "Connect4Server",
   "BasePath": "_content/Connect4Server",
   "Mode": "Default",
@@ -120,6 +120,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Barak-PC\\Downloads\\dotnet-server-master\\wwwroot\\css\\statistics.css",
+      "SourceId": "Connect4Server",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Barak-PC\\Downloads\\dotnet-server-master\\wwwroot\\",
+      "BasePath": "_content/Connect4Server",
+      "RelativePath": "css/statistics#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "p2h311tj9e",
+      "Integrity": "z7GkaYO/Pty9SRVv4N0qSs9Maf7f7ISa6yt6ZC1PksY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\statistics.css"
     },
     {
       "Identity": "C:\\Users\\Barak-PC\\Downloads\\dotnet-server-master\\wwwroot\\js\\players.js",
@@ -1790,6 +1811,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-xkw58yfEuJSXeiQd/1o8aKXsdMwn151A5Cjgw+MU2iQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/statistics.css",
+      "AssetFile": "C:\\Users\\Barak-PC\\Downloads\\dotnet-server-master\\wwwroot\\css\\statistics.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3997"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z7GkaYO/Pty9SRVv4N0qSs9Maf7f7ISa6yt6ZC1PksY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 19 Jul 2025 11:20:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z7GkaYO/Pty9SRVv4N0qSs9Maf7f7ISa6yt6ZC1PksY="
+        }
+      ]
+    },
+    {
+      "Route": "css/statistics.p2h311tj9e.css",
+      "AssetFile": "C:\\Users\\Barak-PC\\Downloads\\dotnet-server-master\\wwwroot\\css\\statistics.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3997"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z7GkaYO/Pty9SRVv4N0qSs9Maf7f7ISa6yt6ZC1PksY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 19 Jul 2025 11:20:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p2h311tj9e"
+        },
+        {
+          "Name": "label",
+          "Value": "css/statistics.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-z7GkaYO/Pty9SRVv4N0qSs9Maf7f7ISa6yt6ZC1PksY="
         }
       ]
     },

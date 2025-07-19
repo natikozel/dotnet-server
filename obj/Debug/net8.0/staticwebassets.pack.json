@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\Barak-PC\\Downloads\\dotnet-server-master\\wwwroot\\css\\statistics.css",
+      "PackagePath": "staticwebassets\\css\\statistics.css"
+    },
+    {
       "Id": "C:\\Users\\Barak-PC\\Downloads\\dotnet-server-master\\wwwroot\\js\\players.js",
       "PackagePath": "staticwebassets\\js\\players.js"
     },

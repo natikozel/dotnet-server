@@ -1010,3 +1010,4 @@ C:\Users\Barak-PC\Downloads\dotnet-server-master\obj\Debug\net8.0\refint\Connect
 C:\Users\Barak-PC\Downloads\dotnet-server-master\obj\Debug\net8.0\Connect4Server.pdb
 C:\Users\Barak-PC\Downloads\dotnet-server-master\obj\Debug\net8.0\Connect4Server.genruntimeconfig.cache
 C:\Users\Barak-PC\Downloads\dotnet-server-master\obj\Debug\net8.0\ref\Connect4Server.dll
+C:\Users\Barak-PC\Downloads\dotnet-server-master\obj\Debug\net8.0\Connect4Server.sourcelink.json

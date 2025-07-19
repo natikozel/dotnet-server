@@ -60,6 +60,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"enr1tpjwqt"},{"Name":"integrity","Value":"sha256-xkw58yfEuJSXeiQd/1o8aKXsdMwn151A5Cjgw\u002BMU2iQ="},{"Name":"label","Value":"_content/Connect4Server/css/site.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"11459"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022xkw58yfEuJSXeiQd/1o8aKXsdMwn151A5Cjgw\u002BMU2iQ=\u0022"},{"Name":"Last-Modified","Value":"Fri, 18 Jul 2025 19:29:05 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Connect4Server/css/statistics.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\statistics.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-z7GkaYO/Pty9SRVv4N0qSs9Maf7f7ISa6yt6ZC1PksY="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3997"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022z7GkaYO/Pty9SRVv4N0qSs9Maf7f7ISa6yt6ZC1PksY=\u0022"},{"Name":"Last-Modified","Value":"Sat, 19 Jul 2025 11:20:17 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Connect4Server/css/statistics.p2h311tj9e.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\statistics.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"p2h311tj9e"},{"Name":"integrity","Value":"sha256-z7GkaYO/Pty9SRVv4N0qSs9Maf7f7ISa6yt6ZC1PksY="},{"Name":"label","Value":"_content/Connect4Server/css/statistics.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3997"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022z7GkaYO/Pty9SRVv4N0qSs9Maf7f7ISa6yt6ZC1PksY=\u0022"},{"Name":"Last-Modified","Value":"Sat, 19 Jul 2025 11:20:17 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Connect4Server/js/players.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\players.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>

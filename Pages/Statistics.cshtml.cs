@@ -156,7 +156,8 @@ namespace Connect4Server.Pages
                 .Select(p => new PlayerGameCount
                 {
                     FirstName = p.FirstName,
-                    GamesPlayed = p.GamesPlayed
+                    GamesPlayed = p.GamesPlayed,
+                    PlayerId = p.PlayerId
                 })
                 .OrderBy(p => p.FirstName)
                 .ToListAsync();
@@ -195,6 +196,7 @@ namespace Connect4Server.Pages
     {
         public string FirstName { get; set; } = string.Empty;
         public int GamesPlayed { get; set; }
+        public int PlayerId { get; set; }
     }
 
     public class GameCountGroup
