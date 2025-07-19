@@ -1,0 +1,753 @@
+@page
+@model Connect4Server.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Player Registration";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container text-center">
+        <div class="hero-content">
+            <h1 class="hero-title">🎮 Player Registration</h1>
+            <p class="hero-subtitle">Join our Connect 4 community and start playing against our intelligent CPU!</p>
+        </div>
+    </div>
+</section>
+
+<!-- Registration Form Section -->
+<section class="registration-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Success/Error Message -->
+                @if (!string.IsNullOrEmpty(Model.Message))
+                {
+                    <div class="alert @(Model.Success ? "alert-success" : "alert-danger") alert-modern mb-4">
+                        <i class="fas @(Model.Success ? "fa-check-circle" : "fa-exclamation-triangle") me-2"></i>
+                        @Model.Message
+                    </div>
+                }
+
+                <div class="registration-card">
+                    <div class="card-header text-center">
+                        <h4 class="mb-2">📝 Create Your Player Account</h4>
+                        <p class="card-subtitle">Fill in your details to start your Connect 4 journey</p>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" novalidate>
+                            @Html.AntiForgeryToken()
+
+                            <div class="row">
+                                <!-- First Name -->
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="Player.FirstName" class="form-label required">
+                                            <i class="fas fa-user me-2"></i>@Html.DisplayNameFor(m => m.Player.FirstName)
+                                        </label>
+                                        <input asp-for="Player.FirstName"
+                                               class="form-control form-control-modern @(ViewData.ModelState["Player.FirstName"]?.Errors.Count > 0 ? "is-invalid" : "")"
+                                               placeholder="Enter your first name" 
+                                               id="firstNameInput" />
+                                        <span asp-validation-for="Player.FirstName" class="invalid-feedback d-block"></span>
+                                        <div class="validation-status" id="firstNameStatus"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Player ID -->
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="Player.PlayerId" class="form-label required">
+                                            <i class="fas fa-hashtag me-2"></i>@Html.DisplayNameFor(m => m.Player.PlayerId)
+                                        </label>
+                                        <input asp-for="Player.PlayerId"
+                                               class="form-control form-control-modern @(ViewData.ModelState["Player.PlayerId"]?.Errors.Count > 0 ? "is-invalid" : "")"
+                                               type="number" min="1" max="1000"
+                                               placeholder="Choose unique ID (1-1000)" 
+                                               id="playerIdInput" />
+                                        <span asp-validation-for="Player.PlayerId" class="invalid-feedback d-block"></span>
+                                        <div class="validation-status" id="playerIdStatus"></div>
+                                        <div class="form-text">
+                                            <small><i class="fas fa-info-circle me-1"></i>Choose a unique ID between 1 and 1000</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Country -->
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="Player.Country" class="form-label required">
+                                            <i class="fas fa-globe me-2"></i>@Html.DisplayNameFor(m => m.Player.Country)
+                                        </label>
+                                        <select asp-for="Player.Country"
+                                                class="form-control form-control-modern @(ViewData.ModelState["Player.Country"]?.Errors.Count > 0 ? "is-invalid" : "")"
+                                                id="countrySelect" onchange="updatePhoneValidation()">
+                                            <option value="">-- Select your country --</option>
+                                            @foreach (var country in Model.CountriesList)
+                                            {
+                                                <option value="@country">@country</option>
+                                            }
+                                        </select>
+                                        <span asp-validation-for="Player.Country" class="invalid-feedback d-block"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Phone Number -->
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="Player.PhoneNumber" class="form-label required">
+                                            <i class="fas fa-phone me-2"></i>@Html.DisplayNameFor(m => m.Player.PhoneNumber)
+                                        </label>
+                                        <input asp-for="Player.PhoneNumber"
+                                               class="form-control form-control-modern @(ViewData.ModelState["Player.PhoneNumber"]?.Errors.Count > 0 ? "is-invalid" : "")"
+                                               placeholder="Select country first" id="phoneInput" disabled />
+                                        <span asp-validation-for="Player.PhoneNumber" class="invalid-feedback d-block"></span>
+                                        <div class="form-text">
+                                            <small id="phoneFormat"><i class="fas fa-info-circle me-1"></i>Please select a country first</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg btn-register">
+                                    <i class="fas fa-user-plus me-2"></i>Register Player
+                                </button>
+                            </div>
+
+                            <!-- Form Requirements Info -->
+                            <div class="requirements-info mt-4">
+                                <h6><i class="fas fa-info-circle me-2"></i>Registration Requirements:</h6>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check text-success me-2"></i>First name: At least 2 letters, letters only</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Player ID: Unique number between 1-1000</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Phone: Valid format for selected country</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Country: Must be selected from the list</li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.9.19/bundle/libphonenumber-js.min.js"></script>
+    
+    <script>
+        // Mapping of country names to country codes
+        const countryCodeMap = {
+            "Afghanistan": "AF", "Albania": "AL", "Algeria": "DZ", "Andorra": "AD", "Angola": "AO",
+            "Antigua and Barbuda": "AG", "Argentina": "AR", "Armenia": "AM", "Australia": "AU", "Austria": "AT",
+            "Azerbaijan": "AZ", "Bahamas": "BS", "Bahrain": "BH", "Bangladesh": "BD", "Barbados": "BB",
+            "Belarus": "BY", "Belgium": "BE", "Belize": "BZ", "Benin": "BJ", "Bhutan": "BT",
+            "Bolivia": "BO", "Bosnia and Herzegovina": "BA", "Botswana": "BW", "Brazil": "BR", "Brunei": "BN",
+            "Bulgaria": "BG", "Burkina Faso": "BF", "Burundi": "BI", "Cabo Verde": "CV", "Cambodia": "KH",
+            "Cameroon": "CM", "Canada": "CA", "Central African Republic": "CF", "Chad": "TD", "Chile": "CL",
+            "China": "CN", "Colombia": "CO", "Comoros": "KM", "Congo (Congo-Brazzaville)": "CG", "Costa Rica": "CR",
+            "Croatia": "HR", "Cuba": "CU", "Cyprus": "CY", "Czechia (Czech Republic)": "CZ", "Democratic Republic of the Congo": "CD",
+            "Denmark": "DK", "Djibouti": "DJ", "Dominica": "DM", "Dominican Republic": "DO", "Ecuador": "EC",
+            "Egypt": "EG", "El Salvador": "SV", "Equatorial Guinea": "GQ", "Eritrea": "ER", "Estonia": "EE",
+            "Eswatini (fmr. 'Swaziland')": "SZ", "Ethiopia": "ET", "Fiji": "FJ", "Finland": "FI", "France": "FR",
+            "Gabon": "GA", "Gambia": "GM", "Georgia": "GE", "Germany": "DE", "Ghana": "GH", "Greece": "GR",
+            "Grenada": "GD", "Guatemala": "GT", "Guinea": "GN", "Guinea-Bissau": "GW", "Guyana": "GY",
+            "Haiti": "HT", "Honduras": "HN", "Hungary": "HU", "Iceland": "IS", "India": "IN", "Indonesia": "ID",
+            "Iran": "IR", "Iraq": "IQ", "Ireland": "IE", "Israel": "IL", "Italy": "IT", "Jamaica": "JM",
+            "Japan": "JP", "Jordan": "JO", "Kazakhstan": "KZ", "Kenya": "KE", "Kiribati": "KI", "Kuwait": "KW",
+            "Kyrgyzstan": "KG", "Laos": "LA", "Latvia": "LV", "Lebanon": "LB", "Lesotho": "LS", "Liberia": "LR",
+            "Libya": "LY", "Liechtenstein": "LI", "Lithuania": "LT", "Luxembourg": "LU", "Madagascar": "MG",
+            "Malawi": "MW", "Malaysia": "MY", "Maldives": "MV", "Mali": "ML", "Malta": "MT", "Marshall Islands": "MH",
+            "Mauritania": "MR", "Mauritius": "MU", "Mexico": "MX", "Micronesia": "FM", "Moldova": "MD", "Monaco": "MC",
+            "Mongolia": "MN", "Montenegro": "ME", "Morocco": "MA", "Mozambique": "MZ", "Myanmar (formerly Burma)": "MM",
+            "Namibia": "NA", "Nauru": "NR", "Nepal": "NP", "Netherlands": "NL", "New Zealand": "NZ", "Nicaragua": "NI",
+            "Niger": "NE", "Nigeria": "NG", "North Korea": "KP", "North Macedonia": "MK", "Norway": "NO", "Oman": "OM",
+            "Pakistan": "PK", "Palau": "PW", "Panama": "PA", "Papua New Guinea": "PG", "Paraguay": "PY", "Peru": "PE",
+            "Philippines": "PH", "Poland": "PL", "Portugal": "PT", "Qatar": "QA", "Romania": "RO", "Russia": "RU",
+            "Rwanda": "RW", "Saint Kitts and Nevis": "KN", "Saint Lucia": "LC", "Saint Vincent and the Grenadines": "VC",
+            "Samoa": "WS", "San Marino": "SM", "Sao Tome and Principe": "ST", "Saudi Arabia": "SA", "Senegal": "SN",
+            "Serbia": "RS", "Seychelles": "SC", "Sierra Leone": "SL", "Singapore": "SG", "Slovakia": "SK", "Slovenia": "SI",
+            "Solomon Islands": "SB", "Somalia": "SO", "South Africa": "ZA", "South Korea": "KR", "South Sudan": "SS",
+            "Spain": "ES", "Sri Lanka": "LK", "Sudan": "SD", "Suriname": "SR", "Sweden": "SE", "Switzerland": "CH",
+            "Syria": "SY", "Taiwan": "TW", "Tajikistan": "TJ", "Tanzania": "TZ", "Thailand": "TH", "Timor-Leste": "TL",
+            "Togo": "TG", "Tonga": "TO", "Trinidad and Tobago": "TT", "Tunisia": "TN", "Turkey": "TR", "Turkmenistan": "TM",
+            "Tuvalu": "TV", "Uganda": "UG", "Ukraine": "UA", "United Arab Emirates": "AE", "United Kingdom": "GB",
+            "United States": "US", "Uruguay": "UY", "Uzbekistan": "UZ", "Vanuatu": "VU", "Vatican City": "VA",
+            "Venezuela": "VE", "Vietnam": "VN", "Yemen": "YE", "Zambia": "ZM", "Zimbabwe": "ZW"
+        };
+
+        // Specific phone formats for common countries with validation rules
+        const phoneFormats = {
+            'Israel': {
+                placeholder: '052-1234567',
+                format: 'Israeli format: 0XX-XXXXXXX (e.g., 052-1234567)',
+                maxLength: 10,
+                pattern: /^(\d{3})(\d{7})$/,
+                formatFunction: (value) => {
+                    const match = value.match(/^(\d{3})(\d{7})$/);
+                    return match ? `${match[1]}-${match[2]}` : value;
+                }
+            },
+            'United States': {
+                placeholder: '(555) 123-4567',
+                format: 'US format: (XXX) XXX-XXXX (e.g., (555) 123-4567)',
+                maxLength: 10,
+                pattern: /^(\d{3})(\d{3})(\d{4})$/,
+                formatFunction: (value) => {
+                    const match = value.match(/^(\d{3})(\d{3})(\d{4})$/);
+                    return match ? `(${match[1]}) ${match[2]}-${match[3]}` : value;
+                }
+            },
+            'United Kingdom': {
+                placeholder: '+44 1234 567890',
+                format: 'UK format: +44 XXXX XXXXXX (e.g., +44 1234 567890)',
+                maxLength: 10,
+                pattern: /^(\d{4})(\d{6})$/,
+                formatFunction: (value) => {
+                    const match = value.match(/^(\d{4})(\d{6})$/);
+                    return match ? `+44 ${match[1]} ${match[2]}` : value;
+                }
+            },
+            'Germany': {
+                placeholder: '+49 30 12345678',
+                format: 'German format: +49 XXX XXXXXXX (e.g., +49 30 12345678)',
+                maxLength: 10,
+                pattern: /^(\d{3})(\d{7})$/,
+                formatFunction: (value) => {
+                    const match = value.match(/^(\d{3})(\d{7})$/);
+                    return match ? `+49 ${match[1]} ${match[2]}` : value;
+                }
+            },
+            'France': {
+                placeholder: '+33 1 23 45 67 89',
+                format: 'French format: +33 X XX XX XX XX (e.g., +33 1 23 45 67 89)',
+                maxLength: 9,
+                pattern: /^(\d{1})(\d{2})(\d{2})(\d{2})(\d{2})$/,
+                formatFunction: (value) => {
+                    const match = value.match(/^(\d{1})(\d{2})(\d{2})(\d{2})(\d{2})$/);
+                    return match ? `+33 ${match[1]} ${match[2]} ${match[3]} ${match[4]} ${match[5]}` : value;
+                }
+            },
+            'Canada': {
+                placeholder: '(416) 123-4567',
+                format: 'Canadian format: (XXX) XXX-XXXX (e.g., (416) 123-4567)',
+                maxLength: 10,
+                pattern: /^(\d{3})(\d{3})(\d{4})$/,
+                formatFunction: (value) => {
+                    const match = value.match(/^(\d{3})(\d{3})(\d{4})$/);
+                    return match ? `(${match[1]}) ${match[2]}-${match[3]}` : value;
+                }
+            },
+            'Australia': {
+                placeholder: '+61 2 1234 5678',
+                format: 'Australian format: +61 X XXXX XXXX (e.g., +61 2 1234 5678)',
+                maxLength: 9,
+                pattern: /^(\d{1})(\d{4})(\d{4})$/,
+                formatFunction: (value) => {
+                    const match = value.match(/^(\d{1})(\d{4})(\d{4})$/);
+                    return match ? `+61 ${match[1]} ${match[2]} ${match[3]}` : value;
+                }
+            },
+            'Japan': {
+                placeholder: '+81 90 1234 5678',
+                format: 'Japanese format: +81 XX XXXX XXXX (e.g., +81 90 1234 5678)',
+                maxLength: 10,
+                pattern: /^(\d{2})(\d{4})(\d{4})$/,
+                formatFunction: (value) => {
+                    const match = value.match(/^(\d{2})(\d{4})(\d{4})$/);
+                    return match ? `+81 ${match[1]} ${match[2]} ${match[3]}` : value;
+                }
+            },
+            'South Korea': {
+                placeholder: '+82 10 1234 5678',
+                format: 'Korean format: +82 XX XXXX XXXX (e.g., +82 10 1234 5678)',
+                maxLength: 10,
+                pattern: /^(\d{2})(\d{4})(\d{4})$/,
+                formatFunction: (value) => {
+                    const match = value.match(/^(\d{2})(\d{4})(\d{4})$/);
+                    return match ? `+82 ${match[1]} ${match[2]} ${match[3]}` : value;
+                }
+            }
+        };
+
+        function updatePhoneValidation() {
+            const countrySelect = document.getElementById('countrySelect');
+            const phoneInput = document.getElementById('phoneInput');
+            const phoneFormat = document.getElementById('phoneFormat');
+
+            const country = countrySelect.value;
+
+            if (!country) {
+                phoneInput.disabled = true;
+                phoneInput.placeholder = "Select country first";
+                phoneFormat.innerHTML = '<i class="fas fa-info-circle me-1"></i>Please select a country first';
+                phoneInput.value = '';
+                return;
+            }
+
+            phoneInput.disabled = false;
+
+            // Check if we have a specific format for this country
+            const format = phoneFormats[country];
+            if (format) {
+                phoneInput.placeholder = format.placeholder;
+                phoneFormat.innerHTML = `<i class="fas fa-info-circle me-1"></i>${format.format} (Max ${format.maxLength} digits)`;
+                // Set maxlength attribute for HTML validation
+                phoneInput.setAttribute('maxlength', format.maxLength + 5); // Add extra space for formatting characters
+            } else {
+                // For other countries, use international format
+                phoneInput.placeholder = '+1 1234567890';
+                phoneFormat.innerHTML = '<i class="fas fa-info-circle me-1"></i>International format: +XXX XXXXXXXXXX (e.g., +1 1234567890)';
+                phoneInput.removeAttribute('maxlength');
+            }
+            
+            phoneInput.value = '';
+        }
+
+        // Phone input validation and formatting
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneInput = document.getElementById('phoneInput');
+            let currentCountry = '';
+            
+            phoneInput.addEventListener('input', function(e) {
+                const country = document.getElementById('countrySelect').value;
+                if (!country) return;
+                
+                const format = phoneFormats[country];
+                if (!format) {
+                    // For other countries, allow international format
+                    this.value = this.value.replace(/[^0-9\s\(\)\-\+]/g, '');
+                    return;
+                }
+                
+                // Remove all non-digits first
+                let digitsOnly = this.value.replace(/\D/g, '');
+                
+                // Limit to max length for the country
+                if (digitsOnly.length > format.maxLength) {
+                    digitsOnly = digitsOnly.substring(0, format.maxLength);
+                }
+                
+                // Format the number according to country pattern
+                if (digitsOnly.length === format.maxLength) {
+                    this.value = format.formatFunction(digitsOnly);
+                } else {
+                    this.value = digitsOnly;
+                }
+            });
+            
+            // Format on blur (when user leaves the field)
+            phoneInput.addEventListener('blur', function(e) {
+                const country = document.getElementById('countrySelect').value;
+                if (!country) return;
+                
+                const format = phoneFormats[country];
+                if (!format) return;
+                
+                let digitsOnly = this.value.replace(/\D/g, '');
+                if (digitsOnly.length === format.maxLength) {
+                    this.value = format.formatFunction(digitsOnly);
+                }
+            });
+
+            // Restrict First Name field to only allow alphabetic characters
+            const firstNameInput = document.querySelector('input[name="Player.FirstName"]');
+            if (firstNameInput) {
+                firstNameInput.addEventListener('input', function(e) {
+                    this.value = this.value.replace(/[^a-zA-Z\s]/g, ''); // Allow only alphabetic characters and spaces
+                });
+            }
+
+            // Real-time validation for First Name and Player ID
+            setupRealTimeValidation();
+
+            updatePhoneValidation();
+
+            // Re-enable phone input if country is already selected (after form submission with errors)
+            const countrySelect = document.getElementById('countrySelect');
+            if (countrySelect.value) {
+                updatePhoneValidation();
+            }
+
+            // Real-time validation functions
+            function setupRealTimeValidation() {
+                const firstNameInput = document.getElementById('firstNameInput');
+                const playerIdInput = document.getElementById('playerIdInput');
+                const firstNameStatus = document.getElementById('firstNameStatus');
+                const playerIdStatus = document.getElementById('playerIdStatus');
+
+                let firstNameTimeout;
+                let playerIdTimeout;
+
+                // First Name validation
+                firstNameInput.addEventListener('input', function() {
+                    clearTimeout(firstNameTimeout);
+                    const value = this.value.trim();
+                    
+                    // Clear previous validation
+                    this.classList.remove('is-valid', 'is-invalid');
+                    firstNameStatus.className = 'validation-status';
+                    firstNameStatus.innerHTML = '';
+
+                    if (value.length === 0) {
+                        return;
+                    }
+
+                    // Basic validation first
+                    if (value.length < 2) {
+                        this.classList.add('is-invalid');
+                        firstNameStatus.className = 'validation-status invalid';
+                        firstNameStatus.innerHTML = '<i class="fas fa-times-circle"></i>First name must be at least 2 characters';
+                        return;
+                    }
+
+                    if (!/^[a-zA-Z\s]+$/.test(value)) {
+                        this.classList.add('is-invalid');
+                        firstNameStatus.className = 'validation-status invalid';
+                        firstNameStatus.innerHTML = '<i class="fas fa-times-circle"></i>First name can only contain letters and spaces';
+                        return;
+                    }
+
+                    // Show checking status
+                    firstNameStatus.className = 'validation-status checking';
+                    firstNameStatus.innerHTML = '<i class="fas fa-spinner fa-spin"></i>Checking availability...';
+
+                    // Debounce the API call
+                    firstNameTimeout = setTimeout(() => {
+                        checkFirstNameAvailability(value);
+                    }, 500);
+                });
+
+                // Player ID validation
+                playerIdInput.addEventListener('input', function() {
+                    clearTimeout(playerIdTimeout);
+                    const value = this.value.trim();
+                    
+                    // Clear previous validation
+                    this.classList.remove('is-valid', 'is-invalid');
+                    playerIdStatus.className = 'validation-status';
+                    playerIdStatus.innerHTML = '';
+
+                    if (value.length === 0) {
+                        return;
+                    }
+
+                    // Basic validation first
+                    const playerId = parseInt(value);
+                    if (isNaN(playerId) || playerId < 1 || playerId > 1000) {
+                        this.classList.add('is-invalid');
+                        playerIdStatus.className = 'validation-status invalid';
+                        playerIdStatus.innerHTML = '<i class="fas fa-times-circle"></i>Player ID must be between 1 and 1000';
+                        return;
+                    }
+
+                    // Show checking status
+                    playerIdStatus.className = 'validation-status checking';
+                    playerIdStatus.innerHTML = '<i class="fas fa-spinner fa-spin"></i>Checking availability...';
+
+                    // Debounce the API call
+                    playerIdTimeout = setTimeout(() => {
+                        checkPlayerIdAvailability(playerId);
+                    }, 500);
+                });
+
+                // Check First Name availability
+                async function checkFirstNameAvailability(firstName) {
+                    try {
+                        const response = await fetch(`?handler=CheckFirstName&firstName=${encodeURIComponent(firstName)}`, {
+                            method: 'GET',
+                            headers: {
+                                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                            }
+                        });
+
+                        if (response.ok) {
+                            const data = await response.json();
+                            
+                            if (data.exists) {
+                                firstNameInput.classList.add('is-invalid');
+                                firstNameStatus.className = 'validation-status invalid';
+                                firstNameStatus.innerHTML = '<i class="fas fa-times-circle"></i>This name is already taken';
+                            } else {
+                                firstNameInput.classList.add('is-valid');
+                                firstNameStatus.className = 'validation-status valid';
+                                firstNameStatus.innerHTML = '<i class="fas fa-check-circle"></i>Name is available';
+                            }
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    } catch (error) {
+                        console.error('Error checking first name:', error);
+                        firstNameStatus.className = 'validation-status';
+                        firstNameStatus.innerHTML = '';
+                    }
+                }
+
+                // Check Player ID availability
+                async function checkPlayerIdAvailability(playerId) {
+                    try {
+                        const response = await fetch(`?handler=CheckPlayerId&playerId=${playerId}`, {
+                            method: 'GET',
+                            headers: {
+                                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                            }
+                        });
+
+                        if (response.ok) {
+                            const data = await response.json();
+                            
+                            if (data.exists) {
+                                playerIdInput.classList.add('is-invalid');
+                                playerIdStatus.className = 'validation-status invalid';
+                                playerIdStatus.innerHTML = '<i class="fas fa-times-circle"></i>This Player ID is already taken';
+                            } else {
+                                playerIdInput.classList.add('is-valid');
+                                playerIdStatus.className = 'validation-status valid';
+                                playerIdStatus.innerHTML = '<i class="fas fa-check-circle"></i>Player ID is available';
+                            }
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    } catch (error) {
+                        console.error('Error checking player ID:', error);
+                        playerIdStatus.className = 'validation-status';
+                        playerIdStatus.innerHTML = '';
+                    }
+                }
+            }
+        });
+    </script>
+}
+
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 80px 0;
+    }
+
+    .hero-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 0;
+    }
+
+    .registration-section {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 70vh;
+    }
+
+    .registration-card {
+        background: white;
+        border-radius: 25px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        border: none;
+        overflow: hidden;
+    }
+
+    .registration-card .card-header {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: none;
+        padding: 30px;
+    }
+
+    .registration-card .card-header h4 {
+        color: #2d3748;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .card-subtitle {
+        color: #718096;
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
+
+    .registration-card .card-body {
+        padding: 40px;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #2d3748;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+    }
+
+    .form-label.required::after {
+        content: " *";
+        color: #dc3545;
+        font-weight: bold;
+    }
+
+    .form-control-modern {
+        padding: 15px 20px;
+        border: 2px solid #e2e8f0;
+        border-radius: 15px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+    }
+
+    .form-control-modern:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        background: white;
+    }
+
+    .form-control-modern:disabled {
+        background: #f1f5f9;
+        color: #9ca3af;
+        cursor: not-allowed;
+    }
+
+    .form-control-modern.is-invalid {
+        border-color: #dc3545;
+        background: #fff5f5;
+    }
+
+    .form-control-modern.is-invalid:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+
+    .invalid-feedback {
+        display: block !important;
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 0.875rem;
+        color: #dc3545;
+        font-weight: 500;
+    }
+
+    .form-text small {
+        color: #6b7280;
+        font-size: 0.85rem;
+    }
+
+    .btn-register {
+        padding: 15px 40px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 25px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-register:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    }
+
+    .requirements-info {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        border-radius: 15px;
+        padding: 20px;
+        border-left: 4px solid #0ea5e9;
+    }
+
+    .requirements-info h6 {
+        color: #0369a1;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .requirements-info li {
+        color: #374151;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+
+    .alert-modern {
+        border-radius: 15px;
+        padding: 20px;
+        border: none;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .alert-success {
+        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        color: #065f46;
+    }
+
+    .alert-danger {
+        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+        color: #991b1b;
+    }
+
+    /* Real-time validation styles */
+    .validation-status {
+        margin-top: 5px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .validation-status.valid {
+        color: #059669;
+    }
+
+    .validation-status.invalid {
+        color: #dc2626;
+    }
+
+    .validation-status.checking {
+        color: #f59e0b;
+    }
+
+    .form-control-modern.is-valid {
+        border-color: #059669;
+        background: #f0fdf4;
+    }
+
+    .form-control-modern.is-valid:focus {
+        border-color: #059669;
+        box-shadow: 0 0 0 0.2rem rgba(5, 150, 105, 0.25);
+    }
+
+    .form-control-modern.is-invalid {
+        border-color: #dc2626;
+        background: #fef2f2;
+    }
+
+    .form-control-modern.is-invalid:focus {
+        border-color: #dc2626;
+        box-shadow: 0 0 0 0.2rem rgba(220, 38, 38, 0.25);
+    }
+
+    @@media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.2rem;
+        }
+
+        .registration-card .card-body {
+            padding: 25px;
+        }
+
+        .registration-card .card-header {
+            padding: 25px;
+        }
+    }
+</style>

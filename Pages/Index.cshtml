@@ -1,0 +1,236 @@
+@page
+@model Connect4Server.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home";
+    ViewData["AdditionalStyles"] = "~/css/index.css";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <h1 class="animate-pulse">Welcome to Connect 4!</h1>
+        <p class="lead">Challenge our intelligent CPU and test your strategic thinking skills!</p>
+        <div class="mt-4">
+            <a asp-page="/Register" class="btn btn-success btn-lg me-3">
+                🚀 Get Started
+            </a>
+            <a asp-page="/Players" class="btn btn-outline-light btn-lg">
+                📊 View Leaderboard
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="stats-section mb-5">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stats-card animate-fadeInUp">
+                <span class="stats-icon">🎮</span>
+                <div class="stats-number">24/7</div>
+                <div class="stats-label">Game Server Online</div>
+            </div>
+            <div class="stats-card animate-fadeInUp">
+                <span class="stats-icon">🏆</span>
+                <div class="stats-number">∞</div>
+                <div class="stats-label">Games Available</div>
+            </div>
+            <div class="stats-card animate-fadeInUp">
+                <span class="stats-icon">⚡</span>
+                <div class="stats-number">0ms</div>
+                <div class="stats-label">Response Time</div>
+            </div>
+            <div class="stats-card animate-fadeInUp">
+                <span class="stats-icon">🎯</span>
+                <div class="stats-number">100%</div>
+                <div class="stats-label">Fun Guaranteed</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Actions -->
+<section class="quick-actions mb-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4 full-width">
+                <div class="card h-100 animate-slideInLeft">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <span class="large-icon">🆕</span>
+                        </div>
+                        <h5 class="card-title">New Player?</h5>
+                        <p class="card-text">Join our community and start playing Connect 4 against our intelligent CPU opponent. Registration is quick and easy!</p>
+                        <a asp-page="/Register" class="btn btn-primary">
+                            📝 Register Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 full-width">
+                <div class="card h-100 animate-slideInLeft">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <span class="large-icon">👥</span>
+                        </div>
+                        <h5 class="card-title">View Players</h5>
+                        <p class="card-text">Check out all registered players, their statistics, and see who's dominating the leaderboard. Find your competition!</p>
+                        <a asp-page="/Players" class="btn btn-info">
+                            📊 View Leaderboard
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 full-width">
+                <div class="card h-100 animate-slideInLeft">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <span class="large-icon">ℹ️</span>
+                        </div>
+                        <h5 class="card-title">About This Project</h5>
+                        <p class="card-text">Learn more about this Connect 4 implementation, the technology behind it, and meet the developers who created it.</p>
+                        <a asp-page="/About" class="btn btn-secondary">
+                            🔍 Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Game Features -->
+<section class="features-section mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 section">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0">🎯 Game Features</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="feature-item mb-3">
+                                <span class="feature-icon">🤖</span>
+                                <div class="feature-content">
+                                    <strong>Intelligent CPU</strong>
+                                    <p>Play against our smart CPU opponent that provides challenging gameplay.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item mb-3">
+                                <span class="feature-icon">💾</span>
+                                <div class="feature-content">
+                                    <strong>Game History</strong>
+                                    <p>All your games are saved and can be restored at any time.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item mb-3">
+                                <span class="feature-icon">📱</span>
+                                <div class="feature-content">
+                                    <strong>Cross-Platform</strong>
+                                    <p>Play from any device with our responsive web interface.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item mb-3">
+                                <span class="feature-icon">⚡</span>
+                                <div class="feature-content">
+                                    <strong>Real-Time Updates</strong>
+                                    <p>Experience smooth, real-time gameplay with instant responses.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item mb-3">
+                                <span class="feature-icon">🏆</span>
+                                <div class="feature-content">
+                                    <strong>Statistics Tracking</strong>
+                                    <p>Keep track of your wins, losses, and improvement over time.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item mb-3">
+                                <span class="feature-icon">🎨</span>
+                                <div class="feature-content">
+                                    <strong>Modern Interface</strong>
+                                    <p>Beautiful, intuitive design that enhances your gaming experience.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 section">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0">🎮 Quick Start</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="step-item mb-3">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <strong>Register</strong>
+                                <p>Create your player account</p>
+                            </div>
+                        </div>
+                        <div class="step-item mb-3">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <strong>Download Client</strong>
+                                <p>Get the Connect 4 game client</p>
+                            </div>
+                        </div>
+                        <div class="step-item mb-3">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <strong>Play & Win</strong>
+                                <p>Challenge the CPU and have fun!</p>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <a asp-page="/Register" class="btn btn-success w-100">
+                                🚀 Start Playing Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- How to Play -->
+<section class="game-rules">
+    <div class="container">
+        <h3 class="text-center mb-4">🎲 How to Play Connect 4</h3>
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="rule-item">
+                    <span class="rule-icon">🎯</span>
+                    <div class="rule-content">
+                        <strong>Objective:</strong> Be the first to connect four of your colored pieces in a row (horizontally, vertically, or diagonally)
+                    </div>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">🎮</span>
+                    <div class="rule-content">
+                        <strong>Game Play:</strong> Players take turns dropping colored discs into a 7-column, 6-row grid. Pieces fall to the lowest available position.
+                    </div>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">🏆</span>
+                    <div class="rule-content">
+                        <strong>Winning:</strong> Connect four discs of your color in a row to win the game. The first player to achieve this wins!
+                    </div>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">🤖</span>
+                    <div class="rule-content">
+                        <strong>Challenge:</strong> You'll be playing against our intelligent CPU opponent that adapts to your playing style.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

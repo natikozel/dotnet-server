@@ -1,0 +1,382 @@
+@page
+@model Connect4Server.Pages.AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container text-center">
+        <div class="hero-content">
+            <h1 class="hero-title">📋 About Connect 4 Game</h1>
+            <p class="hero-subtitle">Learn about our project and the team behind this amazing Connect 4 gaming platform</p>
+        </div>
+    </div>
+</section>
+
+<!-- About Content Section -->
+<section class="about-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Project Information -->
+            <div class="col-lg-8 mb-5 full-width">
+                <div class="about-card">
+                    <div class="card-header text-center">
+                        <h4 class="mb-2 text-black">🎮 Project Information</h4>
+                        <p class="card-subtitle">Final Project - .NET Development Course</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-code me-2"></i>Technology Stack</h5>
+                                <ul class="tech-list">
+                                    <li><i class="fab fa-microsoft me-2"></i>ASP.NET Core 8.0</li>
+                                    <li><i class="fas fa-database me-2"></i>Entity Framework Core</li>
+                                    <li><i class="fas fa-server me-2"></i>SQL Server</li>
+                                    <li><i class="fas fa-desktop me-2"></i>WPF (Windows Presentation Foundation)</li>
+                                    <li><i class="fab fa-bootstrap me-2"></i>Bootstrap 5</li>
+                                    <li><i class="fab fa-js-square me-2"></i>JavaScript</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-features me-2"></i>Key Features</h5>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-user-plus me-2"></i>Player Registration System</li>
+                                    <li><i class="fas fa-gamepad me-2"></i>Connect 4 Game Logic</li>
+                                    <li><i class="fas fa-robot me-2"></i>Intelligent CPU Opponent</li>
+                                    <li><i class="fas fa-save me-2"></i>Game Save/Load Functionality</li>
+                                    <li><i class="fas fa-chart-line me-2"></i>Statistics Tracking</li>
+                                    <li><i class="fas fa-globe me-2"></i>International Phone Validation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Information -->
+            <div class="col-lg-10">
+                <div class="team-section">
+                    <h3 class="text-center mb-5">👨‍💻 Development Team</h3>
+                    <div class="row">
+                        <!-- Developer 1 -->
+                        <div class="col-md-6 mb-4 full-width">
+                            <div class="team-card">
+                                <div class="team-avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="team-info">
+                                    <h5>Netanel Kozel</h5>
+                                    <p class="team-role">Lead Developer & System Architect</p>
+                                    <div class="team-details">
+                                        <p><i class="fas fa-envelope me-2"></i>netanel.kozel@s.afeka.ac.il</p>
+                                        <p><i class="fas fa-id-card me-2"></i>Student ID: 315116939</p>
+                                        <p><i class="fas fa-graduation-cap me-2"></i>.NET Development Course 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Developer 2 -->
+                        <div class="col-md-6 mb-4 full-width">
+                            <div class="team-card">
+                                <div class="team-avatar">
+                                    <i class="fas fa-user-cog"></i>
+                                </div>
+                                <div class="team-info">
+                                    <h5>Barak Kuzi</h5>
+                                    <p class="team-role">Client Developer & Game Logic Specialist</p>
+                                    <div class="team-details">
+                                        <p><i class="fas fa-envelope me-2"></i>barak.kuzi@s.afeka.ac.il</p>
+                                        <p><i class="fas fa-id-card me-2"></i>Student ID: 318359833</p>
+                                        <p><i class="fas fa-graduation-cap me-2"></i>.NET Development Course 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Details -->
+            <div class="col-lg-10 mt-4 full-width">
+                <div class="project-details-card">
+                    <h4 class="text-center mb-4">📝 Project Specifications</h4>
+                    <div class="row">
+                        <div class="col-md-4 mb-4 full-width">
+                            <div class="spec-card">
+                                <div class="spec-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <h6>Database Architecture</h6>
+                                <p>Dual database system with server-side player management and client-side game state persistence using Entity Framework Core migrations.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4 full-width">
+                            <div class="spec-card">
+                                <div class="spec-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h6>Validation System</h6>
+                                <p>Comprehensive validation with custom error messages, country-based phone validation, and duplicate prevention mechanisms.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4 full-width">
+                            <div class="spec-card">
+                                <div class="spec-icon">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <h6>API Communication</h6>
+                                <p>RESTful API design with JSON serialization for seamless client-server communication and real-time game state synchronization.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Information -->
+            <div class="col-lg-8 mt-4 full-width">
+                <div class="course-info-card text-center">
+                    <h5><i class="fas fa-school me-2"></i>Course Information</h5>
+                    <div class="course-details">
+                        <p><strong>Course:</strong> .NET Development</p>
+                        <p><strong>Institution:</strong> Afeka college of Engineering</p>
+                        <p><strong>Academic Year:</strong> 2025</p>
+                        <p><strong>Project Type:</strong> Final Project - Connect 4 game</p>
+                        <p><strong>Submission Date:</strong> August 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 80px 0;
+    }
+
+    .hero-content {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 0;
+    }
+
+    .about-section {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 80vh;
+    }
+
+    .about-card, .team-card, .project-details-card, .course-info-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        border: none;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .about-card:hover, .team-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .about-card .card-header, .project-details-card, .course-info-card {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: none;
+        padding: 25px;
+    }
+
+    .card-subtitle {
+        color: #718096;
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
+
+    .about-card .card-body {
+        padding: 30px;
+    }
+
+    .tech-list, .feature-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .tech-list li, .feature-list li {
+        padding: 8px 0;
+        color: #4a5568;
+        font-weight: 500;
+    }
+
+    .tech-list li i, .feature-list li i {
+        color: #667eea;
+        width: 20px;
+    }
+
+    .team-section h3 {
+        color: #2d3748;
+        font-weight: 700;
+    }
+
+    .team-card {
+        padding: 30px;
+        height: 100%;
+    }
+
+    .team-avatar {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+    }
+
+    .team-avatar i {
+        font-size: 2rem;
+        color: white;
+    }
+
+    .team-info h5 {
+        color: #2d3748;
+        font-weight: 700;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+    .team-role {
+        color: #667eea;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .team-details p {
+        color: #4a5568;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+    .team-responsibilities {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 2px solid #e2e8f0;
+    }
+
+    .team-responsibilities h6 {
+        color: #2d3748;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .team-responsibilities ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .team-responsibilities li {
+        color: #4a5568;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+        padding-left: 15px;
+        position: relative;
+    }
+
+    .team-responsibilities li::before {
+        content: "•";
+        color: #667eea;
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+    }
+
+    .spec-card {
+        text-align: center;
+        padding: 25px 15px;
+        background: #f8f9fa;
+        border-radius: 15px;
+        height: 100%;
+        transition: all 0.3s ease;
+    }
+
+    .spec-card:hover {
+        background: white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transform: translateY(-3px);
+    }
+
+    .spec-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+    }
+
+    .spec-icon i {
+        font-size: 1.5rem;
+        color: white;
+    }
+
+    .spec-card h6 {
+        color: #2d3748;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .spec-card p {
+        color: #4a5568;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .course-details p {
+        margin-bottom: 8px;
+        color: #4a5568;
+    }
+
+    .acknowledgments {
+        padding-top: 20px;
+        border-top: 2px solid #e2e8f0;
+    }
+
+    .acknowledgments h6 {
+        color: #2d3748;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .acknowledgments p {
+        color: #4a5568;
+        line-height: 1.6;
+        font-style: italic;
+    }
+
+    @@media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.2rem;
+        }
+
+        .team-card, .about-card .card-body {
+            padding: 20px;
+        }
+    }
+</style>

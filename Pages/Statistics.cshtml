@@ -1,0 +1,642 @@
+@page "/statistics"
+@model Connect4Server.Pages.StatisticsModel
+@{
+    ViewData["Title"] = "Player & Game Statistics";
+}
+@Html.AntiForgeryToken()
+
+<div class="container-fluid py-5">
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="fw-bold text-dark mb-2">Player & Game Statistics</h2>
+            <p class="text-muted mb-0">Comprehensive analytics and insights for the Connect 4 community</p>
+        </div>
+    </div>
+
+    <!-- Statistics Overview Cards -->
+    <div class="row mb-5">
+        <div class="col-md-3 mb-4">
+            <div class="stats-card">
+                <div class="stats-icon bg-primary">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stats-content">
+                    <h3>@Model.AllPlayers.Count</h3>
+                    <p>Total Players</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stats-card">
+                <div class="stats-icon bg-success">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="stats-content">
+                    <h3>@Model.AllPlayers.Sum(p => p.GamesPlayed)</h3>
+                    <p>Total Games</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stats-card">
+                <div class="stats-icon bg-warning">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="stats-content">
+                    <h3>@Model.AllPlayers.Sum(p => p.GamesWon)</h3>
+                    <p>Games Won</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stats-card">
+                <div class="stats-icon bg-info">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="stats-content">
+                    <h3>@Model.CountryGroups.Count</h3>
+                    <p>Countries</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Tabs -->
+    <div class="row">
+        <div class="col-12">
+            <div class="main-card">
+                <ul class="nav nav-tabs custom-tabs" id="statisticsTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="players-tab" data-bs-toggle="tab" data-bs-target="#players" type="button" role="tab">
+                            <i class="fas fa-users me-2"></i>All Players
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="activity-tab" data-bs-toggle="tab" data-bs-target="#activity" type="button" role="tab">
+                            <i class="fas fa-clock me-2"></i>Recent Activity
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="leaderboard-tab" data-bs-toggle="tab" data-bs-target="#leaderboard" type="button" role="tab">
+                            <i class="fas fa-chart-bar me-2"></i>Leaderboard
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="countries-tab" data-bs-toggle="tab" data-bs-target="#countries" type="button" role="tab">
+                            <i class="fas fa-globe me-2"></i>By Country
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="player-lookup-tab" data-bs-toggle="tab" data-bs-target="#player-lookup" type="button" role="tab">
+                            <i class="fas fa-search me-2"></i>Player Lookup
+                        </button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content pt-4" id="statisticsTabContent">
+                    <!-- All Players Tab -->
+                    <div class="tab-pane fade show active" id="players" role="tabpanel">
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <form method="post" id="sortForm">
+                                    <input type="hidden" name="ViewMode" value="overview" />
+                                    <label class="form-label text-muted">Sort by Name:</label>
+                                    <select asp-for="SortDirection" class="form-select" onchange="document.getElementById('sortForm').submit();">
+                                        <option value="asc">A to Z</option>
+                                        <option value="desc">Z to A</option>
+                                    </select>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th class="py-3">Player</th>
+                                        <th class="py-3">Contact</th>
+                                        <th class="py-3">Country</th>
+                                        <th class="py-3">Registered</th>
+                                        <th class="text-center py-3">Games</th>
+                                        <th class="text-center py-3">Won</th>
+                                        <th class="text-center py-3">Lost</th>
+                                        <th class="text-center py-3">Win Rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var player in Model.AllPlayers)
+                                    {
+                                        <tr>
+                                            <td class="py-3">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="player-avatar me-3">
+                                                        @player.FirstName.Substring(0, 1).ToUpper()
+                                                    </div>
+                                                    <div>
+                                                        <div class="fw-semibold">@player.FirstName</div>
+                                                        <small class="text-muted">ID: @player.PlayerId</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="py-3">
+                                                <small class="text-muted">@player.PhoneNumber</small>
+                                            </td>
+                                            <td class="py-3">@player.Country</td>
+                                            <td class="py-3">
+                                                <small class="text-muted">@player.RegistrationDate.ToString("MMM dd, yyyy")</small>
+                                            </td>
+                                            <td class="text-center py-3">
+                                                <span class="badge bg-light text-dark">@player.GamesPlayed</span>
+                                            </td>
+                                            <td class="text-center py-3">
+                                                <span class="badge bg-success">@player.GamesWon</span>
+                                            </td>
+                                            <td class="text-center py-3">
+                                                <span class="badge bg-danger">@player.GamesLost</span>
+                                            </td>
+                                            <td class="text-center py-3">
+                                                @{
+                                                    var winRate = player.GamesPlayed > 0 ? (player.GamesWon * 100.0 / player.GamesPlayed) : 0;
+                                                }
+                                                <span class="badge @(winRate >= 50 ? "bg-success" : "bg-warning")">
+                                                    @winRate.ToString("F0")%
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity Tab -->
+                    <div class="tab-pane fade" id="activity" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <h5 class="mb-4">Latest Games</h5>
+                                @foreach (var game in Model.RecentGames.Take(10))
+                                {
+                                    <div class="activity-item">
+                                        <div class="activity-icon @(game.Status == "Won" ? "bg-success" : game.Status == "Lost" ? "bg-danger" : "bg-primary")">
+                                            <i class="fas fa-gamepad"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="fw-semibold">@game.Player.FirstName</div>
+                                            <small class="text-muted">@game.Status • @game.StartTime.ToString("MMM dd, HH:mm")</small>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h5 class="mb-4">Last Active Players</h5>
+                                @foreach (var player in Model.PlayersWithLastGame.Where(p => p.LastGameDate.HasValue).Take(10))
+                                {
+                                    <div class="activity-item">
+                                        <div class="player-avatar-sm">
+                                            @player.FirstName.Substring(0, 1).ToUpper()
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="fw-semibold">@player.FirstName</div>
+                                            <small class="text-muted">Last played @player.LastGameDate?.ToString("MMM dd, yyyy")</small>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leaderboard Tab -->
+                    <div class="tab-pane fade" id="leaderboard" role="tabpanel">
+                        <div class="row">
+                            @foreach (var group in Model.GameCountGroups.Take(5))
+                            {
+                                <div class="col-md-6 mb-4">
+                                    <div class="leaderboard-section">
+                                        <h6 class="section-title">
+                                            @if (group.GamesPlayedCount == 0)
+                                            {
+                                                <span>New Players (0 games)</span>
+                                            }
+                                            else
+                                            {
+                                                <span>@group.GamesPlayedCount Game@(group.GamesPlayedCount == 1 ? "" : "s") Played</span>
+                                            }
+                                            <span class="badge bg-light text-dark ms-2">@group.Players.Count</span>
+                                        </h6>
+                                        @foreach (var player in group.Players.Take(5))
+                                        {
+                                            <div class="leaderboard-item">
+                                                <div class="player-avatar-sm">
+                                                    @player.FirstName.Substring(0, 1).ToUpper()
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold">@player.FirstName</div>
+                                                    <div class="text-muted small">@player.Country</div>
+                                                </div>
+                                                @if (player.GamesPlayed > 0)
+                                                {
+                                                    <div class="text-end">
+                                                        <div class="small text-success">@player.GamesWon W</div>
+                                                        <div class="small text-danger">@player.GamesLost L</div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Countries Tab -->
+                    <div class="tab-pane fade" id="countries" role="tabpanel">
+                        <div class="row">
+                            @foreach (var country in Model.CountryGroups)
+                            {
+                                <div class="col-md-6 mb-4">
+                                    <div class="country-section">
+                                        <h6 class="section-title">
+                                            @country.CountryName
+                                            <span class="badge bg-light text-dark ms-2">@country.Players.Count player@(country.Players.Count == 1 ? "" : "s")</span>
+                                        </h6>
+                                        @foreach (var player in country.Players)
+                                        {
+                                            <div class="country-player-item">
+                                                <div class="player-avatar-sm">
+                                                    @player.FirstName.Substring(0, 1).ToUpper()
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold">@player.FirstName</div>
+                                                    <div class="text-muted small">@player.GamesPlayed games played</div>
+                                                </div>
+                                                @if (player.GamesPlayed > 0)
+                                                {
+                                                    <div class="text-end">
+                                                        @{
+                                                            var winRate = (player.GamesWon * 100.0 / player.GamesPlayed);
+                                                        }
+                                                        <span class="badge @(winRate >= 50 ? "bg-success" : "bg-warning")">
+                                                            @winRate.ToString("F0")%
+                                                        </span>
+                                                    </div>
+                                                }
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Player Lookup Tab -->
+                    <div class="tab-pane fade" id="player-lookup" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Select Player:</label>
+                                    <select id="playerSelect" class="form-select">
+                                        <option value="0">-- Choose a player --</option>
+                                        @foreach (var player in Model.AllPlayers)
+                                        {
+                                            <option value="@player.Id">@player.FirstName (@player.PlayerId)</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="playerDetailsContainer">
+                            @if (Model.SelectedPlayer != null)
+                            {
+                                <div class="row mt-4">
+                                    <div class="col-md-4 mb-4">
+                                        <div class="player-profile">
+                                            <div class="player-avatar-lg">
+                                                @Model.SelectedPlayer.FirstName.Substring(0, 1).ToUpper()
+                                            </div>
+                                            <h4 class="mt-3">@Model.SelectedPlayer.FirstName</h4>
+                                            <p class="text-muted">Player ID: @Model.SelectedPlayer.PlayerId</p>
+                                            <p class="text-muted">@Model.SelectedPlayer.Country</p>
+                                            <p class="text-muted">@Model.SelectedPlayer.PhoneNumber</p>
+                                            <p class="text-muted">Joined @Model.SelectedPlayer.RegistrationDate.ToString("MMMM yyyy")</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h5 class="mb-4">Game History</h5>
+                                        @if (Model.SelectedPlayerGames.Any())
+                                        {
+                                            <div class="table-responsive">
+                                                <table class="table table-sm">
+                                                    <thead class="table-light">
+                                                        <tr>
+                                                            <th class="py-3">Game ID</th>
+                                                            <th class="py-3">Started</th>
+                                                            <th class="py-3">Status</th>
+                                                            <th class="py-3">Result</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var game in Model.SelectedPlayerGames)
+                                                        {
+                                                            <tr>
+                                                                <td class="py-3">#@game.Id</td>
+                                                                <td class="py-3">@game.StartTime.ToString("MMM dd, HH:mm")</td>
+                                                                <td class="py-3">
+                                                                    <span class="badge @(game.Status == "Won" ? "bg-success" : game.Status == "Lost" ? "bg-danger" : "bg-primary")">
+                                                                        @game.Status
+                                                                    </span>
+                                                                </td>
+                                                                <td class="py-3">@(string.IsNullOrEmpty(game.Winner) ? "-" : game.Winner)</td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <p class="text-muted">No games played yet.</p>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.stats-card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.stats-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.stats-content h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    color: #2d3748;
+}
+
+.stats-content p {
+    margin: 0;
+    color: #718096;
+    font-size: 14px;
+}
+
+.main-card {
+    background: white;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #f0f0f0;
+    margin-bottom: 2rem;
+}
+
+.custom-tabs {
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 28px;
+    margin: 0;
+}
+
+.custom-tabs .nav-link {
+    border: none;
+    color: #718096;
+    padding: 20px 24px;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+}
+
+.custom-tabs .nav-link.active {
+    color: #2d3748;
+    border-bottom-color: #3182ce;
+    background: none;
+}
+
+.tab-content {
+    padding: 28px;
+}
+
+.player-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #4299e1;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.player-avatar-sm {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #4299e1;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 12px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.player-avatar-lg {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #4299e1;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0 auto;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #f7fafc;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.activity-content {
+    flex-grow: 1;
+}
+
+.leaderboard-section, .country-section {
+    background: #f7fafc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #2d3748;
+}
+
+.leaderboard-item, .country-player-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.leaderboard-item:last-child, .country-player-item:last-child {
+    border-bottom: none;
+}
+
+.player-profile {
+    text-align: center;
+    padding: 28px;
+    background: #f7fafc;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.table th {
+    font-weight: 600;
+    color: #4a5568;
+    border-top: none;
+    padding: 16px 12px;
+}
+
+.table td {
+    padding: 16px 12px;
+    vertical-align: middle;
+}
+
+.form-select, .form-control {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 1rem;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #4a5568;
+}
+
+.badge {
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+/* Responsive spacing */
+@@media (max-width: 768px) {
+    .stats-card {
+        padding: 20px;
+        margin-bottom: 1rem;
+    }
+    
+    .tab-content {
+        padding: 20px;
+    }
+    
+    .custom-tabs {
+        padding: 0 20px;
+    }
+    
+    .custom-tabs .nav-link {
+        padding: 16px 16px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const playerSelect = document.getElementById('playerSelect');
+    const playerDetailsContainer = document.getElementById('playerDetailsContainer');
+    
+    if (playerSelect) {
+        playerSelect.addEventListener('change', function() {
+            const selectedPlayerId = this.value;
+            
+            if (selectedPlayerId === '0') {
+                // Clear the details if no player is selected
+                playerDetailsContainer.innerHTML = '';
+                return;
+            }
+            
+            // Show loading state
+            playerDetailsContainer.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div><p class="mt-2">Loading player details...</p></div>';
+            
+            // Make AJAX request to get player details
+            const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+            fetch('/Statistics?handler=GetPlayerDetails', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'RequestVerificationToken': token
+                },
+                body: `selectedPlayerId=${selectedPlayerId}&__RequestVerificationToken=${token}`
+            })
+            .then(response => response.text())
+            .then(html => {
+                playerDetailsContainer.innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Error loading player details:', error);
+                playerDetailsContainer.innerHTML = '<div class="alert alert-danger">Error loading player details. Please try again.</div>';
+            });
+        });
+    }
+});
+</script> 

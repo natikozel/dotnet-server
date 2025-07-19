@@ -1,0 +1,57 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\css\\about.css",
+      "PackagePath": "staticwebassets\\css\\about.css"
+    },
+    {
+      "Id": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\css\\index.css",
+      "PackagePath": "staticwebassets\\css\\index.css"
+    },
+    {
+      "Id": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\css\\players.css",
+      "PackagePath": "staticwebassets\\css\\players.css"
+    },
+    {
+      "Id": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\css\\register.css",
+      "PackagePath": "staticwebassets\\css\\register.css"
+    },
+    {
+      "Id": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\js\\players.js",
+      "PackagePath": "staticwebassets\\js\\players.js"
+    },
+    {
+      "Id": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\js\\register.js",
+      "PackagePath": "staticwebassets\\js\\register.js"
+    },
+    {
+      "Id": "C:\\Users\\Netanel.Kozel\\OneDrive - abra-IT\\Desktop\\Final Project\\Connect4Server\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.Connect4Server.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.Connect4Server.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.Connect4Server.props",
+      "PackagePath": "build\\Connect4Server.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Connect4Server.props",
+      "PackagePath": "buildMultiTargeting\\Connect4Server.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.Connect4Server.props",
+      "PackagePath": "buildTransitive\\Connect4Server.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
